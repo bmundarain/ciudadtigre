@@ -1,0 +1,8 @@
+anunciante:
+    resource: "@AnuncianteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+directorio:
+    resource: "@DirectorioBundle/Resources/config/routing.yml"
+    prefix:   /
+
