@@ -1,8 +1,8 @@
-anunciante:
-    resource: "@AnuncianteBundle/Resources/config/routing.yml"
-    prefix:   /
+CiudadTigreAnuncianteBundle_admin_ciudad_tigre_anunciante_bundle_anunciante:
+    resource: "@CiudadTigreAnuncianteBundle/Controller/Anunciante/"
+    type:     admingenerator
+    prefix:   /admin/ciudad_tigre_anunciante_bundle/anunciante
 
-directorio:
-    resource: "@DirectorioBundle/Resources/config/routing.yml"
+ciudad_tigre_anunciante:
+    resource: "@CiudadTigreAnuncianteBundle/Resources/config/routing.yml"
     prefix:   /
-

@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('AnuncianteBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('CiudadTigreAnuncianteBundle:Default:index.html.twig', array('name' => $name));
     }
 }

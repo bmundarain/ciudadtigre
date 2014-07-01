@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -67,3 +67,16 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+admingenerator_generator:
+    use_propel: false
+    use_doctrine_orm: true
+    use_doctrine_odm: false
+    base_admin_template: ::base.html.twig
+
+    twig:
+        use_localized_date: false
+        date_format: "d-m-Y"
+        datetime_format: "d-m-Y H:i:s"
+        localized_date_format: "medium"
+        localized_datetime_format: "medium"

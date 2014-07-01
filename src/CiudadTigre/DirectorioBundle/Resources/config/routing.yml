@@ -1,3 +1,0 @@
-directorio_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: DirectorioBundle:Default:index }
