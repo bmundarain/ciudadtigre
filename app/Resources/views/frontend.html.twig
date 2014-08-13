@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+
+<div class="contenedor-top">
+  <div class="base-top">
+  
+  	<div class="mancha-contenido">
+  
+        <div class="cont-logo"><a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-cet.png') }}"></a>
+		</div>
+        <div class="cont-navegacion">
+            <div class="cont-redsoc txt-rob-cnd">Siguenos en
+                <a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-facebook.png') }}"></a>
+                <a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-twitter.png') }}"></a>
+            </div>
+            <div class="cont-menu">
+                <ul>
+                    <li><a href="">Noticias</a></li>
+                    <li><a href="">Revistas</a></li>
+                    <li><a href="">Gu&iacute;a Comercial y Profesional</a></li>
+                    <li><a href="">La Ciudad</a></li>
+                    <li><a href="">Clasificados</a></li>
+                </ul>
+            </div>
+        </div>
+	</div>
+    	<div class="base-banner">
+        	<div class="banner"><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner.jpg') }}" width="900" height="160">
+            </div>
+            <div class="mancha-contenido">
+                <div class="titulo-seccion">Directorio
+                </div>
+                <div class="buscador">
+                	<form action="#">
+                    	<input type="search" value="" name="buscar">
+                        <input type="submit" value="Buscar">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+  </div>
+</div>
+<div class="contenedor-gen bg-gris">
+    <div class="links-alfabetico txt-rob-cnd"><a href="#">A</a> &bull; <a href="#">B</a> &bull; <a href="#">C</a> &bull; <a href="#">D</a> &bull; <a href="#">E</a> &bull; <a href="#">F</a> &bull; <a href="#">G</a> &bull; <a href="#">H</a> &bull; <a href="#">I</a> &bull; <a href="#">J</a> &bull; <a href="#">K</a> &bull; <a href="#">L</a> &bull; <a href="#">M</a> &bull; <a href="#">N</a> &bull; <a href="#">&Ntilde;</a> &bull; <a href="#">O</a> &bull; <a href="#">P</a> &bull; <a href="#">Q</a> &bull; <a href="#">R</a> &bull; <a href="#">S</a> &bull; <a href="#">T</a> &bull; <a href="#">U</a> &bull; <a href="#">V</a> &bull; <a href="#"></a> &bull; <a href="#">W</a> &bull; <a href="#">X</a> &bull; <a href="#">Y</a> &bull; <a href="#">Z</a>
+    </div> 
+</div>
+
+{% block section %}{% endblock %}
+    
+{% endblock %}

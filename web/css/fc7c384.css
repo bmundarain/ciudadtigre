@@ -28,7 +28,7 @@ body
 .contenedor-top
 {
 	width:100%;
-	background:url(/images/fondo-linea.gif) #000 repeat-x;
+	background:url(images/fondo-linea.gif) #000 repeat-x;
 	height:418px;
 }
 .base-top
@@ -40,7 +40,7 @@ body
 	height:418px;
 	margin:0px auto;
 	padding:0px;
-	background:url(/images/img-fondo.jpg) no-repeat center;
+	background:url(images/img-fondo.jpg) no-repeat center;
 }
 .base-banner
 {
@@ -231,7 +231,7 @@ body
 	color:#fff;
 	background:#666;
 	text-align:center;
-	width:58px;
+	width:59px;
 	height:22px;
 	cursor:pointer;
 	box-sizing:border-box;

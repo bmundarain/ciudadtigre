@@ -9,9 +9,10 @@
 
         <title>{% block title %}{% endblock %}</title>
 
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
         {% block stylesheets %}
-            {% stylesheets '@CiudadTigreAnuncianteBundle/Resources/public/css/bootstrap.min.css'
-                           '@CiudadTigreAnuncianteBundle/Resources/public/font/css/font-awesome.min.css'
+            {% stylesheets '@CiudadTigreAnuncianteBundle/Resources/public/css/cet.css'
             %}
             <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
             {% endstylesheets %}
@@ -21,14 +22,26 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     
-    <body id="{% block id '' %}"><div class="container-fluid">
+    <body id="{% block id '' %}">
         {% block body %}{% endblock %}
             
         <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; {{ 'now'|date('Y') }} Standard IT Corp, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <div class="contenedor-gen bg-gris">
+                <div class="tabla-footer">
+                    <div class="celda-footer txt-rob-cnd">
+                        <a href="#">Noticias</a>&Iota;
+                        <a href="#">Revistas</a>&Iota;
+                        <a href="#">Guía Comercial & Profesional</a>&Iota;
+                        <a href="#">La Ciudad</a>&Iota;
+                        <a href="#">Clasificados</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-gen bg-negro">
+                <div class="creditos-footer">&copy;copyright 2013 &ndash; Todos los derechos reservados. Desarrollado por Actimedia Digital C.A.</div>
+            </div>
         </footer>
 
         
-    </div></body>
+    </body>
 </html>
