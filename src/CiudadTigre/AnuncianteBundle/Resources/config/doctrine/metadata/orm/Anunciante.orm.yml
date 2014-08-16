@@ -1,0 +1,135 @@
+Anunciante:
+    type: entity
+    table: anunciante
+    indexes:
+        fk_anunciante_subcategoria_idx:
+            columns:
+                - subcategoria_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        rif:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+        descripcion:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        direccion:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        email:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        telefono1:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+        telefono2:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        web:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        facebook:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        twitter:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        hits:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        horario:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        rutaimg1:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        rutaimg2:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        rutaimg3:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+        mapa:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+    manyToOne:
+        subcategoria:
+            targetEntity: Subcategoria
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                subcategoria_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

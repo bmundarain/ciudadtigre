@@ -1,0 +1,27 @@
+{% extends '::frontend.html.twig' %}
+
+{% block section %}
+
+<div class="contenedor-gen bg-blanca">
+    <div class="DirBase">
+        <div class="mancha-contenido DirPaddNull listado">
+        
+            <ul class="lista-columnas">
+        
+            {% if anunciantes is empty %}
+                No se encontraron Anunciantes!!
+            {% else %}
+
+            {% for anunciante in anunciantes %}
+                <li><a href="{{ path('anunciante_detalle', { 'id': anunciante.id } ) }}">{{ anunciante.nombre }}</a><br /><span class="listado-direccion">{{ anunciante.direccion }}</span></li>
+            {% endfor %}
+
+            {% endif %}
+            
+        </div>
+        <div class="txt-piepagina">Para publicar, cont&aacute;ctanos al 0424.830.82.01 &frasl; 0283.515.31.58 o escribe a <a href="mailto:ciudaddeltigre@gmail.com">ciudaddeltigre@gmail.com</a><br /><br />&quot;D&eacute;jate ver, p&uacute;blica con nosotros&quot;
+        </div>
+    </div>
+</div>
+
+{% endblock %}

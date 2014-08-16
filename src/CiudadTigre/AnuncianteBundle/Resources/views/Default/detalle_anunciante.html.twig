@@ -1,0 +1,38 @@
+{% extends '::frontend.html.twig' %}
+
+{% block section %}
+
+<div class="contenedor-gen bg-blanca">
+    <div class="DirBase">
+        <div class="mancha-contenido">
+            <div class="DetalleTienda-base">
+                <div class="DetalleTit-tienda txt-rob">{{ anunciante.nombre }}</div>
+                <div class="DetalleTxt-tienda txt-rob">
+                    <ul>
+                        <li>{{ anunciante.direccion }}</li>
+                        <li>Teléfonos: {{ anunciante.telefono1 }} / {{ anunciante.telefono2 }}</li>
+                        <!--<li>Anzoátegui - Venezuela</li>
+                        <li>Ciudad del Tigre</li>-->
+                        <li>R.I.F {{ anunciante.rif }}</li>
+                        <li>Página Web: <a href="#">www.frigorificociudaddeltigre.com.ve</a></li>
+                        <li>Facebook: Frigorífico Ciudad del Tigre</li>
+                        <li>Twitter: @Frigorificoctigre</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="DetalleTienda-foto">
+                <img src="images/img-tiendas/frigorifico.jpg">
+            </div>
+            <div class="DetalleTienda-map">
+                <!--<iframe class="DetalleTienda-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15767.939372915507!2d-64.23511299302723!3d8.8810005128081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2s!4v1407485586802"></iframe>-->
+                <iframe class="DetalleTienda-iframe" src="https://mapsengine.google.com/map/embed?mid=z-QEbqNSrANI.k0pr7kMbdsy4"></iframe>
+            </div>
+
+
+            <div class="txt-piepagina">Para publicar, cont&aacute;ctanos al 0424.830.82.01 &frasl; 0283.515.31.58 o escribe a <a href="mailto:ciudaddeltigre@gmail.com">ciudaddeltigre@gmail.com</a><br /><br />&quot;D&eacute;jate ver, p&uacute;blica con nosotros&quot;
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

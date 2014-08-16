@@ -30,7 +30,7 @@ builders:
     new:
         params:
             title: New object for AnuncianteBundle
-            display: [ nombre, rif, descripcion, email, telefono ]
+            display: [ nombre, rif, descripcion, email ]
             actions:
                 save: ~
                 list: ~

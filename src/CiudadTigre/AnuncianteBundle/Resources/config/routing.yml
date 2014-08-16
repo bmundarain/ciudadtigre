@@ -1,3 +1,15 @@
 ciudad_tigre_anunciante_homepage:
     path:     /
     defaults: { _controller: CiudadTigreAnuncianteBundle:Default:index }
+    
+subcategoria_mostrar:
+    pattern: /{id}/mostrarSub
+    defaults: { _controller: CiudadTigreAnuncianteBundle:Default:mostrarSubcategoria }
+    
+anunciantes_mostrar:
+    pattern: /{id}/mostrarAnunciantes
+    defaults: { _controller: CiudadTigreAnuncianteBundle:Default:mostrarAnunciante }
+
+anunciante_detalle:
+    pattern: /{id}/detalleAnunciante
+    defaults: { _controller: CiudadTigreAnuncianteBundle:Default:detalleAnunciante }

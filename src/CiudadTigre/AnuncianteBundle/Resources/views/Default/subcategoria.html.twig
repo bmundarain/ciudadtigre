@@ -6,22 +6,17 @@
     <div class="DirBase">
         <div class="mancha-contenido DirPaddNull">
         
-            {% if categorias is empty %}
-                No se encontraron categorias!!
+            {% if subcategorias is empty %}
+                No se encontraron subcategorias!!
             {% else %}
 
-            {% for categoria in categorias %}
+            {% for subcategoria in subcategorias %}
                 <div class="itemDir-base">
-                    <div class="itemDir-imagen"><img src="{{ asset('upload/images/img-directorio/' ~ categoria.rutafoto) }}">
-                    </div>
                     <div class="itemDir-txt">
-                            <div class="itemDir-nombre"><a href="{{ path('subcategoria_mostrar', { 'id': categoria.id } ) }}">{{ categoria.nombre }}</a>
+                            <div class="itemDir-nombre"><a href="{{ path('anunciantes_mostrar', { 'id': subcategoria.id } ) }}">{{ subcategoria.nombre }}</a>
                         </div>
                         <div class="itemDir-mas"><a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/dir-mas.gif') }}"></a>
                         </div>
-                        <!--<div class="itemDir-sub">
-                            Automercado
-                        </div>-->
                     </div>
                 </div>
             {% endfor %}
@@ -30,7 +25,7 @@
             
         </div>
         <div class="txt-piepagina">Para publicar, cont&aacute;ctanos al 0424.830.82.01 &frasl; 0283.515.31.58 o escribe a <a href="mailto:ciudaddeltigre@gmail.com">ciudaddeltigre@gmail.com</a><br /><br />&quot;D&eacute;jate ver, p&uacute;blica con nosotros&quot;
-		</div>
+        </div>
     </div>
 </div>
 
