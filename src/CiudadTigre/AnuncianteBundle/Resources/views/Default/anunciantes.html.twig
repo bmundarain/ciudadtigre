@@ -13,7 +13,11 @@
             {% else %}
 
             {% for anunciante in anunciantes %}
-                <li><a href="{{ path('anunciante_detalle', { 'id': anunciante.id } ) }}">{{ anunciante.nombre }}</a><br /><span class="listado-direccion">{{ anunciante.direccion }}</span></li>
+                <li>
+                    <a href="{{ path('anunciante_detalle', { 'id': anunciante.id } ) }}">{{ anunciante.nombre }}</a>
+                    <br />
+                    <span class="listado-direccion">{{ anunciante.direccion }}</span>
+                </li>
             {% endfor %}
 
             {% endif %}

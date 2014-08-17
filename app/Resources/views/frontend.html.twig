@@ -1,5 +1,20 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {% stylesheets '@CiudadTigreAnuncianteBundle/Resources/public/css/cet.css'
+                   '@CiudadTigreAnuncianteBundle/Resources/public/css/jquery.bxslider.css'
+    %}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %} 
+{% javascripts '@CiudadTigreAnuncianteBundle/Resources/public/js/jquery-2.1.1.min.js' 
+               '@CiudadTigreAnuncianteBundle/Resources/public/js/jquery.bxslider.min.js'
+%}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+{% endblock %}
 
 {% block body %}
 
@@ -49,5 +64,7 @@
 </div>
 
 {% block section %}{% endblock %}
+
+{% block script %}{% endblock %}
     
 {% endblock %}

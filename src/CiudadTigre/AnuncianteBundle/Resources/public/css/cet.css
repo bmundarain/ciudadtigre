@@ -215,8 +215,8 @@ body
 	padding:1px 10px;
 	box-sizing:border-box;
 	margin:0px;
-	width:270px;
-	height:22px;
+	width:250px;
+	height:20px;
 	font-family:'Roboto', Sans-Serif;
 	font-size:13px;
 	color:#999;
@@ -312,7 +312,7 @@ body
 	float:left;
 	margin:0px;
 	margin-bottom:30px;
-	padding:0px 30px;
+	padding:0px 0px;
 	box-sizing:border-box;
 	display:inline-block;
 	width:320px;
@@ -506,7 +506,7 @@ body
 	padding:0px;
 	width:413px;
 	height:239px;
-	border:1px solid #ca8630;
+	//border:1px solid #ca8630;
 }
 .DetalleTienda-foto img
 {

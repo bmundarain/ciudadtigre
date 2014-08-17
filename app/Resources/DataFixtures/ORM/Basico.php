@@ -81,6 +81,9 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                 
                 $anunciante->setEmail('anunciante'.$numAnunciante.'@localhost.com');
                 $anunciante->setTelefono1('02129997766');
+                $anunciante->setWeb('http://www.anunciante'.$numAnunciante.'.com');
+                $anunciante->setTwitter('@anunciante'.$numAnunciante);
+                $anunciante->setFacebook('anunciante'.$numAnunciante);
                 $anunciante->setHits(0);
                 $anunciante->setHorario(
                     "Lorem ipsum dolor sit amet, consectetur adipisicing.\n"
