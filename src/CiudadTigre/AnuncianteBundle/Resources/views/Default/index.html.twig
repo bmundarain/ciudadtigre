@@ -17,7 +17,7 @@
                     <div class="itemDir-txt">
                             <div class="itemDir-nombre"><a href="{{ path('subcategoria_mostrar', { 'id': categoria.id } ) }}">{{ categoria.nombre }}</a>
                         </div>
-                        <div class="itemDir-mas"><a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/dir-mas.gif') }}"></a>
+                        <div class="itemDir-mas"><a href="{{ path('subcategoria_mostrar', { 'id': categoria.id } ) }}"><img src="{{ asset('bundles/ciudadtigreanunciante/images/dir-mas.gif') }}"></a>
                         </div>
                         <!--<div class="itemDir-sub">
                             Automercado

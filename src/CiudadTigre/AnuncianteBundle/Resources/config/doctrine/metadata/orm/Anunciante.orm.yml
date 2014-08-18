@@ -1,6 +1,7 @@
 Anunciante:
     type: entity
     table: anunciante
+    repositoryClass: CiudadTigre\AnuncianteBundle\Entity\AnuncianteRepository
     indexes:
         fk_anunciante_subcategoria_idx:
             columns:

@@ -28,6 +28,9 @@ class Basico implements FixtureInterface, ContainerAwareInterface
             array('nombre' => 'Alimentos', 'rutafoto' => 'bt-dir-alimentos.png'),
             array('nombre' => 'Computadoras', 'rutafoto' => 'bt-dir-computadoras.png'),
             array('nombre' => 'Mobiliario', 'rutafoto' => 'bt-dir-moviliarios.png'),
+            array('nombre' => 'Animales y Plantas', 'rutafoto' => 'bt-dir-animalesplantas.png'),
+            array('nombre' => 'Construcción', 'rutafoto' => 'bt-dir-construccion.png'),
+            array('nombre' => 'Deportes', 'rutafoto' => 'bt-dir-deportes.png'),
         );
         foreach ($categorias as $categoria) {
             $entidad = new Categoria();

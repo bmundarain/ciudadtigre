@@ -23,12 +23,14 @@
   
   	<div class="mancha-contenido">
   
-        <div class="cont-logo"><a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-cet.png') }}"></a>
-		</div>
+        <div class="cont-logo">
+            <a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-cet.png') }}"></a>
+        </div>
+            
         <div class="cont-navegacion">
             <div class="cont-redsoc txt-rob-cnd">Siguenos en
                 <a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-facebook.png') }}"></a>
-                <a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-twitter.png') }}"></a>
+                <a href="http://twitter.com/ciudaddeltigre"><img src="{{ asset('bundles/ciudadtigreanunciante/images/logo-twitter.png') }}"></a>
             </div>
             <div class="cont-menu">
                 <ul>
@@ -48,7 +50,7 @@
                 <div class="titulo-seccion">Directorio
                 </div>
                 <div class="buscador">
-                	<form action="#">
+                    <form action="{{ path('anunciante_buscar') }}" method="post" accept-charset="UTF-8" role="search">
                     	<input type="search" value="" name="buscar">
                         <input type="submit" value="Buscar">
                     </form>
@@ -59,7 +61,19 @@
   </div>
 </div>
 <div class="contenedor-gen bg-gris">
-    <div class="links-alfabetico txt-rob-cnd"><a href="#">A</a> &bull; <a href="#">B</a> &bull; <a href="#">C</a> &bull; <a href="#">D</a> &bull; <a href="#">E</a> &bull; <a href="#">F</a> &bull; <a href="#">G</a> &bull; <a href="#">H</a> &bull; <a href="#">I</a> &bull; <a href="#">J</a> &bull; <a href="#">K</a> &bull; <a href="#">L</a> &bull; <a href="#">M</a> &bull; <a href="#">N</a> &bull; <a href="#">&Ntilde;</a> &bull; <a href="#">O</a> &bull; <a href="#">P</a> &bull; <a href="#">Q</a> &bull; <a href="#">R</a> &bull; <a href="#">S</a> &bull; <a href="#">T</a> &bull; <a href="#">U</a> &bull; <a href="#">V</a> &bull; <a href="#"></a> &bull; <a href="#">W</a> &bull; <a href="#">X</a> &bull; <a href="#">Y</a> &bull; <a href="#">Z</a>
+    <div class="links-alfabetico txt-rob-cnd">
+        
+        {% for letter in 'A'..'Z' %}
+            <a href="{{ path('buscar_letra', {'letter': letter}) }}">{{ letter }}</a> &bull;
+        {% endfor %}
+        
+        
+        <!--<a href="#">A</a> &bull;
+        <a href="#">B</a> &bull; 
+        <a href="#">C</a> &bull; 
+        <a href="#">D</a> &bull;
+        <a href="#">E</a> &bull; <a href="#">F</a> &bull; <a href="#">G</a> &bull; <a href="#">H</a> &bull; <a href="#">I</a> &bull; <a href="#">J</a> &bull; <a href="#">K</a> &bull; <a href="#">L</a> &bull; <a href="#">M</a> &bull; <a href="#">N</a> &bull; <a href="#">&Ntilde;</a> &bull; <a href="#">O</a> &bull; <a href="#">P</a> &bull; <a href="#">Q</a> &bull; <a href="#">R</a> &bull; <a href="#">S</a> &bull; <a href="#">T</a> &bull; <a href="#">U</a> &bull; <a href="#">V</a> &bull; <a href="#"></a> &bull; <a href="#">W</a> &bull; <a href="#">X</a> &bull; <a href="#">Y</a> &bull; <a href="#">Z</a>
+        -->
     </div> 
 </div>
 

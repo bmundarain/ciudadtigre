@@ -54,4 +54,32 @@ class DefaultController extends Controller
                     'anunciante' => $anunciante
         ));
     }
+    
+    public function buscarAnuncianteAction()
+    {
+        $peticion = $this->getRequest();
+        $em = $this->get('doctrine.orm.entity_manager');
+
+        $anunciantes = $em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->getAnunciantesByNombre($peticion->get("buscar"));
+        
+        return $this->render(
+                    'CiudadTigreAnuncianteBundle:Default:anunciantes.html.twig', array(
+                    'anunciantes' => $anunciantes
+        ));
+        
+    }
+    
+    public function buscarLetraAction($letter)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        
+        $categorias = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->getCategoriasLetraInicial($letter);
+        $anunciantes = $em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->getAnunciantesLetraInicial($letter);
+        
+        return $this->render(
+                    'CiudadTigreAnuncianteBundle:Default:listado_letrainicial.html.twig', array(
+                    'categorias' => $categorias,
+                    'anunciantes' => $anunciantes,
+        ));
+    }
 }

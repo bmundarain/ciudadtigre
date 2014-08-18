@@ -13,3 +13,11 @@ anunciantes_mostrar:
 anunciante_detalle:
     pattern: /{id}/detalleAnunciante
     defaults: { _controller: CiudadTigreAnuncianteBundle:Default:detalleAnunciante }
+    
+anunciante_buscar:
+    pattern: /buscar_anunciante
+    defaults: { _controller: CiudadTigreAnuncianteBundle:Default:buscarAnunciante }
+    
+buscar_letra:
+    pattern:  /{letter}/buscar
+    defaults: { _controller: CiudadTigreAnuncianteBundle:Default:buscarLetra }

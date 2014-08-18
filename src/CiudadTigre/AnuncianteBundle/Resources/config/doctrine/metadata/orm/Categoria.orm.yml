@@ -1,6 +1,7 @@
 Categoria:
     type: entity
     table: categoria
+    repositoryClass: CiudadTigre\AnuncianteBundle\Entity\CategoriaRepository
     id:
         id:
             type: integer

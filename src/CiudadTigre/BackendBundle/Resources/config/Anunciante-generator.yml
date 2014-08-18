@@ -1,0 +1,57 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: CiudadTigre\AnuncianteBundle\Entity\Anunciante
+    namespace_prefix: CiudadTigre
+    concurrency_lock: ~
+    bundle_name: BackendBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: Lista de Anunciantes
+            display: [nombre, rif, email]
+            max_per_page: 10
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [nombre, rif]
+    new:
+        params:
+            title: Nuevo Anunciante
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Estas editando el Anunciante \"%object%\"|{ %object%: Anunciante.nombre }|"
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "Estas viendo el Anunciante \"%object%\"|{ %object%: Anunciante.nombre }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~
