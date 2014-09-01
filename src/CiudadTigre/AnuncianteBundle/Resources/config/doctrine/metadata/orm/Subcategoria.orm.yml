@@ -37,6 +37,11 @@ Subcategoria:
             nullable: false
             comment: ''
             column: updated_at
+        promocionado:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
     manyToOne:
         categoria:
             targetEntity: Categoria

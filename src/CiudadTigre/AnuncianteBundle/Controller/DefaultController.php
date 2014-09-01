@@ -13,9 +13,23 @@ class DefaultController extends Controller
         //$categorias = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->findCategorias();
         $categorias = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->findAll();
         
+        foreach ($categorias as $categoria)
+        {
+            $subcategorias[] = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->findBy(array('categoria' => $categoria->getId(), 'promocionado' => 1),
+                                                                                                      array('id' => 'ASC'),
+                                                                                                      3);
+        }
+        
+//        echo '<pre>';
+//	print_r($subcategorias);
+//	echo '</pre>';
+//        
+//        exit();
+        
         return $this->render(
                     'CiudadTigreAnuncianteBundle:Default:index.html.twig', array(
-                    'categorias' => $categorias
+                    'categorias' => $categorias,
+                    'subcategorias' => $subcategorias
         ));
     }
     

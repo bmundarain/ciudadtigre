@@ -106,16 +106,10 @@ class Categoria
     {
         return $this->rutafoto;
     }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Categoria
-     */
-    public function setCreatedAt($createdAt)
+    
+    public function setCreatedAt()
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime();
 
         return $this;
     }
@@ -131,6 +125,26 @@ class Categoria
     }
 
     /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+    
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
+    }
+    
+    public function setUpdatedAtValue()
+    {
+      $this->updated_at = new \DateTime();
+    }
+
+    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
@@ -141,15 +155,5 @@ class Categoria
         $this->updatedAt = $updatedAt;
 
         return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 }

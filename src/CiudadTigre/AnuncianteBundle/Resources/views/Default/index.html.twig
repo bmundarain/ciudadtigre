@@ -9,7 +9,7 @@
             {% if categorias is empty %}
                 No se encontraron categorias!!
             {% else %}
-
+            {% set indice = 0 %}
             {% for categoria in categorias %}
                 <div class="itemDir-base">
                     <div class="itemDir-imagen"><img src="{{ asset('upload/images/img-directorio/' ~ categoria.rutafoto) }}">
@@ -19,11 +19,23 @@
                         </div>
                         <div class="itemDir-mas"><a href="{{ path('subcategoria_mostrar', { 'id': categoria.id } ) }}"><img src="{{ asset('bundles/ciudadtigreanunciante/images/dir-mas.gif') }}"></a>
                         </div>
-                        <!--<div class="itemDir-sub">
-                            Automercado
-                        </div>-->
+                        <div class="itemDir-sub">
+                            {% if subcategorias[indice] is empty %}
+                                No se encontraron Subcategorias
+                            {% else %}
+                            {% set i = 0 %}
+                            {% for subcategoria in subcategorias[indice] %}
+                                <a href="#">{{ subcategoria.nombre }}</a>
+                                {% if i < 2 %}
+                                    {{ ',' }}
+                                {% endif %}
+                                {% set i = i + 1 %}
+                            {% endfor %}
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
+                {% set indice = indice + 1 %}
             {% endfor %}
 
             {% endif %}

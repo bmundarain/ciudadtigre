@@ -121,6 +121,12 @@ Anunciante:
             length: 45
             fixed: false
             comment: ''
+        promocionado:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
     manyToOne:
         subcategoria:
             targetEntity: Subcategoria

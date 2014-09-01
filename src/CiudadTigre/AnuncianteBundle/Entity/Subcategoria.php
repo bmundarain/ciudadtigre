@@ -48,6 +48,13 @@ class Subcategoria
      * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updatedAt;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="promocionado", type="integer", nullable=true)
+     */
+    private $promocionado;
 
     /**
      * @var \Categoria
@@ -118,19 +125,6 @@ class Subcategoria
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Subcategoria
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get createdAt
      *
      * @return \DateTime 
@@ -141,19 +135,6 @@ class Subcategoria
     }
 
     /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return Subcategoria
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
      * Get updatedAt
      *
      * @return \DateTime 
@@ -161,6 +142,42 @@ class Subcategoria
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    public function setCreatedAtValue()
+    {
+      if(!$this->getCreatedAt())
+      {
+        $this->created_at = new \DateTime();
+      }
+    }
+
+    public function setUpdatedAtValue()
+    {
+      $this->updated_at = new \DateTime();
+    }
+    
+    /**
+     * Set promocionado
+     *
+     * @param integer $promocionado
+     * @return Anunciante
+     */
+    public function setPromocionado($promocionado)
+    {
+        $this->promocionado = $promocionado;
+
+        return $this;
+    }
+
+    /**
+     * Get promocionado
+     *
+     * @return integer 
+     */
+    public function getPromocionado()
+    {
+        return $this->promocionado;
     }
 
     /**
@@ -184,5 +201,31 @@ class Subcategoria
     public function getCategoria()
     {
         return $this->categoria;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Subcategoria
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Subcategoria
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }

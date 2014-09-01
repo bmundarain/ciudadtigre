@@ -36,6 +36,9 @@ class Basico implements FixtureInterface, ContainerAwareInterface
             $entidad = new Categoria();
             $entidad->setNombre($categoria['nombre']);
             $entidad->setRutafoto($categoria['rutafoto']);
+            //$entidad->setCreatedAtValue();
+            $entidad->setCreatedAt();
+            //$entidad->setUpdatedAtValue();
 
             $manager->persist($entidad);
         }
@@ -51,6 +54,9 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                 $subcategoria = new Subcategoria();
                 $subcategoria->setNombre('Subcategoria #'.$numSub);
                 $subcategoria->setCategoria($categoria);
+                $subcategoria->setPromocionado(1);
+                $subcategoria->setCreatedAtValue();
+                $subcategoria->setUpdatedAtValue();
     
                 $manager->persist($subcategoria);
             }
@@ -95,6 +101,9 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                     ."Nostrud exercitation ullamco laboris nisi ut"
                 );
                 $anunciante->setRutaimg1('foto.jpg');
+                $anunciante->setPromocionado(1);
+                $anunciante->setCreatedAtValue();
+                $anunciante->setUpdatedAtValue();
                                 
                 // Seleccionar aleatoriamente una subcategoria que pertenezca a la categoria
                 $anunciante->setSubcategoria($subcategorias[array_rand($subcategorias)]);
