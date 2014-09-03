@@ -17,9 +17,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new CiudadTigre\AnuncianteBundle\CiudadTigreAnuncianteBundle(),
             new CiudadTigre\BackendBundle\CiudadTigreBackendBundle(),
             new Ideup\SimplePaginatorBundle\IdeupSimplePaginatorBundle()
