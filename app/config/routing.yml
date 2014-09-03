@@ -6,3 +6,7 @@ CiudadTigreBackendBundle_admin_ciudad_tigre_backend_bundle_anunciante:
 ciudad_tigre_anunciante:
     resource: "@CiudadTigreAnuncianteBundle/Resources/config/routing.yml"
     prefix:   /
+    
+ciudad_tigre_backend:
+    resource: "@CiudadTigreBackendBundle/Resources/config/routing.yml"
+    prefix:   /backend

@@ -37,7 +37,7 @@ class Basico implements FixtureInterface, ContainerAwareInterface
             $entidad->setNombre($categoria['nombre']);
             $entidad->setRutafoto($categoria['rutafoto']);
             //$entidad->setCreatedAtValue();
-            $entidad->setCreatedAt();
+            //$entidad->setCreatedAt();
             //$entidad->setUpdatedAtValue();
 
             $manager->persist($entidad);
@@ -55,8 +55,8 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                 $subcategoria->setNombre('Subcategoria #'.$numSub);
                 $subcategoria->setCategoria($categoria);
                 $subcategoria->setPromocionado(1);
-                $subcategoria->setCreatedAtValue();
-                $subcategoria->setUpdatedAtValue();
+//                $subcategoria->setCreatedAtValue();
+//                $subcategoria->setUpdatedAtValue();
     
                 $manager->persist($subcategoria);
             }
@@ -75,8 +75,12 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                 $numAnunciante++;
                 
                 $anunciante = new Anunciante();
+
+                $longitud = 3; // Elegimos la longitud de la cadena
+                // recortamos la cadena, conseguimos nueva pass
+                $palabra = substr( md5(microtime()), 1, $longitud); 
                 
-                $anunciante->setNombre('Anunciante #'.$numAnunciante.' lorem ipsum dolor sit amet');
+                $anunciante->setNombre($palabra.' Anunciante #'.$numAnunciante);
                 $anunciante->setRif('J400999999');
                 $anunciante->setDescripcion(
                     "Lorem ipsum dolor sit amet, consectetur adipisicing.\n"
@@ -102,8 +106,8 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                 );
                 $anunciante->setRutaimg1('foto.jpg');
                 $anunciante->setPromocionado(1);
-                $anunciante->setCreatedAtValue();
-                $anunciante->setUpdatedAtValue();
+//                $anunciante->setCreatedAtValue();
+//                $anunciante->setUpdatedAtValue();
                                 
                 // Seleccionar aleatoriamente una subcategoria que pertenezca a la categoria
                 $anunciante->setSubcategoria($subcategorias[array_rand($subcategorias)]);

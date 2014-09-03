@@ -3,12 +3,15 @@
 namespace CiudadTigre\AnuncianteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Anunciante
  *
  * @ORM\Table(name="anunciante", indexes={@ORM\Index(name="fk_anunciante_subcategoria_idx", columns={"subcategoria_id"})})
  * @ORM\Entity(repositoryClass="CiudadTigre\AnuncianteBundle\Entity\AnuncianteRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Anunciante
 {
@@ -25,6 +28,7 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     * @Assert\NotBlank()
      */
     private $nombre;
 
@@ -32,6 +36,7 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="rif", type="string", length=45, nullable=false)
+     * @Assert\NotBlank()
      */
     private $rif;
 
@@ -46,13 +51,15 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="direccion", type="text", nullable=false)
+     * @Assert\NotBlank()
      */
     private $direccion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100, nullable=true)
+     * @ORM\Column(name="email", type="string", length=100, nullable=false)
+     * @Assert\Email(checkMX=true, message = "Ingresa un email válido")
      */
     private $email;
 
@@ -60,6 +67,7 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="telefono1", type="string", length=45, nullable=false)
+     * @Assert\Regex(pattern="/\d{11}/")
      */
     private $telefono1;
 
@@ -67,6 +75,7 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="telefono2", type="string", length=45, nullable=true)
+     * @Assert\Regex(pattern="/\d{11}/")
      */
     private $telefono2;
 
@@ -74,6 +83,7 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="web", type="string", length=255, nullable=true)
+     * @Assert\Url()
      */
     private $web;
 
@@ -104,6 +114,21 @@ class Anunciante
      * @ORM\Column(name="horario", type="text", nullable=true)
      */
     private $horario;
+    
+    /**
+    * @Assert\Image(maxSize = "500k")
+    */
+    protected $foto1;
+    
+    /**
+    * @Assert\Image(maxSize = "500k")
+    */
+    protected $foto2;
+    
+    /**
+    * @Assert\Image(maxSize = "500k")
+    */
+    protected $foto3;
 
     /**
      * @var string
@@ -163,8 +188,65 @@ class Anunciante
      * })
      */
     private $subcategoria;
+    
+    
+    public function __construct() {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+    }
+    
+    public function __toString() 
+    {
+        return $this->getNombre();
+    }
 
-
+    /**
+    * @param UploadedFile $foto
+    */
+    public function setFoto1(UploadedFile $foto = null)
+    {
+        $this->foto1 = $foto;
+    }
+    
+    /**
+    * @return UploadedFile
+    */
+    public function getFoto1()
+    {
+        return $this->foto1;
+    }
+    
+    /**
+    * @param UploadedFile $foto
+    */
+    public function setFoto2(UploadedFile $foto = null)
+    {
+        $this->foto2 = $foto;
+    }
+    
+    /**
+    * @return UploadedFile
+    */
+    public function getFoto2()
+    {
+        return $this->foto2;
+    }
+    
+    /**
+    * @param UploadedFile $foto
+    */
+    public function setFoto3(UploadedFile $foto = null)
+    {
+        $this->foto3 = $foto;
+    }
+    
+    /**
+    * @return UploadedFile
+    */
+    public function getFoto3()
+    {
+        return $this->foto3;
+    }
 
     /**
      * Get id
@@ -541,17 +623,20 @@ class Anunciante
         return $this->updatedAt;
     }
     
+    /**
+     * @ORM\PrePersist
+     */
     public function setCreatedAtValue()
     {
-      if(!$this->getCreatedAt())
-      {
         $this->created_at = new \DateTime();
-      }
     }
-
+    
+    /**
+     * @ORM\PreUpdate
+     */
     public function setUpdatedAtValue()
     {
-      $this->updated_at = new \DateTime();
+       $this->setUpdatedAt(new \DateTime());
     }
 
     /**
@@ -647,5 +732,41 @@ class Anunciante
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+    
+    public function subirFoto1()
+    {
+        if (null === $this->foto1) {
+            return;
+        }
+        
+        $directorioDestino = __DIR__.'/../../../../web/upload/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('cupon-').'-foto1.jpg';
+        $this->foto1->move($directorioDestino, $nombreArchivoFoto);
+        $this->setRutaimg1($nombreArchivoFoto);
+    }
+    
+    public function subirFoto2()
+    {
+        if (null === $this->foto2) {
+            return;
+        }
+        
+        $directorioDestino = __DIR__.'/../../../../web/upload/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('cupon-').'-foto2.jpg';
+        $this->foto2->move($directorioDestino, $nombreArchivoFoto);
+        $this->setRutaimg2($nombreArchivoFoto);
+    }
+    
+    public function subirFoto3()
+    {
+        if (null === $this->foto3) {
+            return;
+        }
+        
+        $directorioDestino = __DIR__.'/../../../../web/upload/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('cupon-').'-foto1.jpg';
+        $this->foto3->move($directorioDestino, $nombreArchivoFoto);
+        $this->setRutaimg3($nombreArchivoFoto);
     }
 }

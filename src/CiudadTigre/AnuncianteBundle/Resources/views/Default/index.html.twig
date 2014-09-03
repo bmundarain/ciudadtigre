@@ -25,7 +25,7 @@
                             {% else %}
                             {% set i = 0 %}
                             {% for subcategoria in subcategorias[indice] %}
-                                <a href="#">{{ subcategoria.nombre }}</a>
+                                <a href="{{ path('anunciantes_mostrar', { 'id': subcategoria.id } ) }}">{{ subcategoria.nombre }}</a>                                
                                 {% if i < 2 %}
                                     {{ ',' }}
                                 {% endif %}

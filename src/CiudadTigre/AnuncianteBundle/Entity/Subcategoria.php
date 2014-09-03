@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="subcategoria", indexes={@ORM\Index(name="fk_subcategoria_categoria_idx", columns={"categoria_id"})})
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Subcategoria
 {
@@ -66,7 +67,16 @@ class Subcategoria
      */
     private $categoria;
 
-
+    
+    public function __construct() {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+    }
+    
+    public function __toString() 
+    {
+        return $this->getNombre();
+    }
 
     /**
      * Get id
@@ -144,6 +154,9 @@ class Subcategoria
         return $this->updatedAt;
     }
     
+    /**
+     * @ORM\PrePersist
+     */
     public function setCreatedAtValue()
     {
       if(!$this->getCreatedAt())
@@ -152,9 +165,12 @@ class Subcategoria
       }
     }
 
+    /**
+     * @ORM\PreUpdate
+     */
     public function setUpdatedAtValue()
     {
-      $this->updated_at = new \DateTime();
+       $this->setUpdatedAt(new \DateTime());
     }
     
     /**

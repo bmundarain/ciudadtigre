@@ -39,4 +39,19 @@ class AnuncianteRepository extends EntityRepository
         return $consulta->getResult();
     }
     
+    public function queryTodasLosAnunciantes()
+    {
+        $em = $this->getEntityManager();
+        $consulta = $em->createQuery('
+                SELECT a FROM CiudadTigreAnuncianteBundle:Anunciante a
+              ORDER BY a.id ASC');
+        
+        return $consulta;
+    }
+    
+    public function findTodasLosAnunciantes()
+    {
+        return $this->queryTodasLosAnunciantes()->getResult();
+    }
+
 }

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="categoria")
  * @ORM\Entity(repositoryClass="CiudadTigre\AnuncianteBundle\Entity\CategoriaRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Categoria
 {
@@ -49,7 +50,11 @@ class Categoria
      */
     private $updatedAt;
 
-
+    
+    public function __construct() {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+    }
 
     /**
      * Get id
@@ -107,9 +112,33 @@ class Categoria
         return $this->rutafoto;
     }
     
-    public function setCreatedAt()
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
     {
-        $this->createdAt = new \DateTime();
+        $this->created_at = new \DateTime();
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+       $this->setUpdatedAt(new \DateTime());
+    }
+    
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Categoria
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -125,26 +154,6 @@ class Categoria
     }
 
     /**
-     * Get updatedAt
-     *
-     * @return \DateTime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-    
-    public function setCreatedAtValue()
-    {
-        $this->created_at = new \DateTime();
-    }
-    
-    public function setUpdatedAtValue()
-    {
-      $this->updated_at = new \DateTime();
-    }
-
-    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
@@ -155,5 +164,15 @@ class Categoria
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

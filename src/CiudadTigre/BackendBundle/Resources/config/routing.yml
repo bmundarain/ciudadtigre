@@ -1,0 +1,7 @@
+BackendAnunciante:
+    resource: "@CiudadTigreBackendBundle/Resources/config/routing/anunciante.yml"
+    prefix:   /anunciante
+    
+backend_portada:
+    path:     /
+    defaults: { _controller: CiudadTigreBackendBundle:Anunciante:index }

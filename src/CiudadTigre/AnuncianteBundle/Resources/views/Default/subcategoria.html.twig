@@ -13,7 +13,7 @@
             {% for subcategoria in subcategorias %}
                 <div class="itemDir-base">
                     <div class="itemDir-txt">
-                            <div class="itemDir-nombre"><a href="{{ path('anunciantes_mostrar', { 'id': subcategoria.id } ) }}">{{ subcategoria.nombre }}</a>
+                        <div class="itemDir-nombre"><a href="{{ path('anunciantes_mostrar', { 'id': subcategoria.id } ) }}">{{ subcategoria.nombre }}</a>
                         </div>
                         <div class="itemDir-mas"><a href="#"><img src="{{ asset('bundles/ciudadtigreanunciante/images/dir-mas.gif') }}"></a>
                         </div>

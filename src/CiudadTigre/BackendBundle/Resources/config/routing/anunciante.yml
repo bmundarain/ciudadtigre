@@ -1,0 +1,30 @@
+anunciante:
+    path:     /
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:index" }
+
+anunciante_show:
+    path:     /{id}/show
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:show" }
+
+anunciante_new:
+    path:     /new
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:new" }
+
+anunciante_create:
+    path:     /create
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:create" }
+    requirements: { _method: post }
+
+anunciante_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:edit" }
+
+anunciante_update:
+    path:     /{id}/update
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:update" }
+    requirements: { _method: post|put }
+
+anunciante_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:delete" }
+    requirements: { _method: post|delete }
