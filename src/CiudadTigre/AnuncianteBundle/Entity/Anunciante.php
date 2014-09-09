@@ -740,8 +740,8 @@ class Anunciante
             return;
         }
         
-        $directorioDestino = __DIR__.'/../../../../web/upload/images/img-tiendas';
-        $nombreArchivoFoto = uniqid('cupon-').'-foto1.jpg';
+        $directorioDestino = __DIR__.'/../../../../web/uploads/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('ciudad-').'-foto1.jpg';
         $this->foto1->move($directorioDestino, $nombreArchivoFoto);
         $this->setRutaimg1($nombreArchivoFoto);
     }
@@ -752,8 +752,8 @@ class Anunciante
             return;
         }
         
-        $directorioDestino = __DIR__.'/../../../../web/upload/images/img-tiendas';
-        $nombreArchivoFoto = uniqid('cupon-').'-foto2.jpg';
+        $directorioDestino = __DIR__.'/../../../../web/uploads/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('ciudad-').'-foto2.jpg';
         $this->foto2->move($directorioDestino, $nombreArchivoFoto);
         $this->setRutaimg2($nombreArchivoFoto);
     }
@@ -764,8 +764,8 @@ class Anunciante
             return;
         }
         
-        $directorioDestino = __DIR__.'/../../../../web/upload/images/img-tiendas';
-        $nombreArchivoFoto = uniqid('cupon-').'-foto1.jpg';
+        $directorioDestino = __DIR__.'/../../../../web/uploads/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('ciudad-').'-foto1.jpg';
         $this->foto3->move($directorioDestino, $nombreArchivoFoto);
         $this->setRutaimg3($nombreArchivoFoto);
     }

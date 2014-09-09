@@ -38,14 +38,19 @@
                     <li><a href="">Revistas</a></li>
                     <li><a href="">Gu&iacute;a Comercial y Profesional</a></li>
                     <li><a href="">La Ciudad</a></li>
-                    <li><a href="">Clasificados</a></li>
+                    <!--<li><a href="">Clasificados</a></li>-->
                 </ul>
             </div>
         </div>
 	</div>
     	<div class="base-banner">
-        	<div class="banner"><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner.jpg') }}" width="900" height="160">
-            </div>
+        	<div class="banner">
+                    <ul class="bxslider">
+                        <li><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner.jpg') }}" /></li>
+                        <li><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner2.jpg') }}" /></li>
+                        <li><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner3.jpg') }}" /></li>
+                    </ul>
+                </div>
             <div class="mancha-contenido">
                 <div class="titulo-seccion">Directorio
                 </div>
@@ -79,6 +84,15 @@
 
 {% block section %}{% endblock %}
 
-{% block script %}{% endblock %}
+{% block script %}
+<script type="text/javascript">
+$(document).ready(function(){
+   $('.bxslider').bxSlider({
+     adaptiveHeight: true,
+     //auto: true
+   });
+});
+</script>
+{% endblock %}
     
 {% endblock %}

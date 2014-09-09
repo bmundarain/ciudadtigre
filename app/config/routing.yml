@@ -1,8 +1,3 @@
-CiudadTigreBackendBundle_admin_ciudad_tigre_backend_bundle_anunciante:
-    resource: "@CiudadTigreBackendBundle/Controller/Anunciante/"
-    type:     admingenerator
-    prefix:   /admin/ciudad_tigre_backend_bundle/anunciante
-
 ciudad_tigre_anunciante:
     resource: "@CiudadTigreAnuncianteBundle/Resources/config/routing.yml"
     prefix:   /

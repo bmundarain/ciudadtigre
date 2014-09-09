@@ -2,6 +2,9 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+parameters:
+    directorio.imagenes: %kernel.root_dir%/../web/uploads/images/img-tienda/
+    
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
