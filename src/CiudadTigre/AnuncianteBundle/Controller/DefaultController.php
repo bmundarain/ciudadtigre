@@ -6,6 +6,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
+    public function mostrarBannerAction()
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        
+        $banners = $em->getRepository('CiudadTigreAnuncianteBundle:Banner')->findAll();
+
+        return $this->render('CiudadTigreAnuncianteBundle:Default:listabanners.html.twig', array(
+            'banners' => $banners
+        ));
+
+    }
+    
+    
     public function indexAction()
     {
         $em = $this->get('doctrine.orm.entity_manager');

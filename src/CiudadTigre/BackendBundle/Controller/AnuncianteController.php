@@ -4,6 +4,8 @@ namespace CiudadTigre\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 use CiudadTigre\AnuncianteBundle\Entity\Anunciante;
 use CiudadTigre\BackendBundle\Form\AnuncianteType;
@@ -54,7 +56,7 @@ class AnuncianteController extends Controller
 
         if ($form->isValid()) {
             
-            $directorioFotos = $this->container->getParameter('directorio.imagenes');
+            $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
             $entity->subirFoto1($directorioFotos);
             $entity->subirFoto2($directorioFotos);
             $entity->subirFoto3($directorioFotos);
@@ -197,13 +199,18 @@ class AnuncianteController extends Controller
                 $entity->setRutaimg1($rutaFotoOriginal1);
             } else {
                 // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes');
+                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
                 
                 $entity->subirFoto1($directorioFotos);
                 // Borrar la foto anterior
                 if (!empty($rutaFotoOriginal1)) {
                     $fs = new Filesystem();
-                    $fs->remove($directorioFotos.$rutaFotoOriginal1);
+                                        
+                    try {
+                        $fs->remove($directorioFotos.$rutaFotoOriginal1);
+                    } catch (IOExceptionInterface $e) {
+                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                    }
                 }
             }
             
@@ -212,13 +219,18 @@ class AnuncianteController extends Controller
                 $entity->setRutaimg2($rutaFotoOriginal2);
             } else {
                 // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes');
+                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
                 
                 $entity->subirFoto2($directorioFotos);
                 // Borrar la foto anterior
                 if (!empty($rutaFotoOriginal2)) {
                     $fs = new Filesystem();
-                    $fs->remove($directorioFotos.$rutaFotoOriginal2);
+                    
+                    try {
+                        $fs->remove($directorioFotos.$rutaFotoOriginal2);
+                    } catch (IOExceptionInterface $e) {
+                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                    }
                 }
             }
             
@@ -227,13 +239,18 @@ class AnuncianteController extends Controller
                 $entity->setRutaimg3($rutaFotoOriginal3);
             } else {
                 // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes');
+                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
                 
                 $entity->subirFoto3($directorioFotos);
                 // Borrar la foto anterior
                 if (!empty($rutaFotoOriginal3)) {
                     $fs = new Filesystem();
-                    $fs->remove($directorioFotos.$rutaFotoOriginal3);
+                    
+                    try {
+                        $fs->remove($directorioFotos.$rutaFotoOriginal3);
+                    } catch (IOExceptionInterface $e) {
+                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                    }
                 }
             }
             
@@ -267,6 +284,18 @@ class AnuncianteController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
+            
+            // Borrar la foto
+            $fs = new Filesystem();
+            try {
+                $fs->remove($directorioFotos.$entity->getRutaimg1());
+                $fs->remove($directorioFotos.$entity->getRutaimg2());
+                $fs->remove($directorioFotos.$entity->getRutaimg3());
+            } catch (IOExceptionInterface $e) {
+                echo "Ocurrió un error borrando laa imágenes en ".$e->getPath();
+            }
         }
 
         return $this->redirect($this->generateUrl('anunciante'));

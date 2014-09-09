@@ -38,7 +38,7 @@
                     <li><a href="">Revistas</a></li>
                     <li><a href="">Gu&iacute;a Comercial y Profesional</a></li>
                     <li><a href="">La Ciudad</a></li>
-                    <!--<li><a href="">Clasificados</a></li>-->
+                    <li><a href="">Clasificados</a></li>
                 </ul>
             </div>
         </div>
@@ -46,9 +46,7 @@
     	<div class="base-banner">
         	<div class="banner">
                     <ul class="bxslider">
-                        <li><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner.jpg') }}" /></li>
-                        <li><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner2.jpg') }}" /></li>
-                        <li><img src="{{ asset('bundles/ciudadtigreanunciante/images/banner3.jpg') }}" /></li>
+                        {{ render_esi(controller('CiudadTigreAnuncianteBundle:Default:mostrarBanner')) }}
                     </ul>
                 </div>
             <div class="mancha-contenido">

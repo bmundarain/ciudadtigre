@@ -67,7 +67,6 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="telefono1", type="string", length=45, nullable=false)
-     * @Assert\Regex(pattern="/\d{11}/")
      */
     private $telefono1;
 
@@ -75,7 +74,6 @@ class Anunciante
      * @var string
      *
      * @ORM\Column(name="telefono2", type="string", length=45, nullable=true)
-     * @Assert\Regex(pattern="/\d{11}/")
      */
     private $telefono2;
 
@@ -765,7 +763,7 @@ class Anunciante
         }
         
         $directorioDestino = __DIR__.'/../../../../web/uploads/images/img-tiendas';
-        $nombreArchivoFoto = uniqid('ciudad-').'-foto1.jpg';
+        $nombreArchivoFoto = uniqid('ciudad-').'-foto3.jpg';
         $this->foto3->move($directorioDestino, $nombreArchivoFoto);
         $this->setRutaimg3($nombreArchivoFoto);
     }

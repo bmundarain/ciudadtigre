@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <h1>Crear Banner</h1>
+
+    {{ form(form) }}
+    
+    {% set hide_edit, hide_delete = false, false %}
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('anunciante') }}">
+                Volver a la lista
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

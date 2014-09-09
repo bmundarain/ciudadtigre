@@ -3,7 +3,8 @@ imports:
     - { resource: security.yml }
 
 parameters:
-    directorio.imagenes: %kernel.root_dir%/../web/uploads/images/img-tienda/
+    directorio.imagenes.anunciante: %kernel.root_dir%/../web/uploads/images/img-tiendas/
+    directorio.imagenes.banner:     %kernel.root_dir%/../web/uploads/images/banners/
     
 framework:
     #esi:             ~

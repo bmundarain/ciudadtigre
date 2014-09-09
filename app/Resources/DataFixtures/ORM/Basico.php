@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use CiudadTigre\AnuncianteBundle\Entity\Categoria;
 use CiudadTigre\AnuncianteBundle\Entity\Subcategoria;
 use CiudadTigre\AnuncianteBundle\Entity\Anunciante;
+use CiudadTigre\AnuncianteBundle\Entity\Banner;
 
 /**
  *
@@ -114,6 +115,16 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                 
                 $manager->persist($anunciante);
             }
+        }
+        $manager->flush();
+        
+        /*** CREAR LOS BANNERS ***/
+        for($i = 1; $i <= 3; $i++)
+        {
+            $banner = new Banner();
+            $banner->setRuta('banner'.$i.'.jpg');
+            
+            $manager->persist($banner);
         }
         $manager->flush();
     }

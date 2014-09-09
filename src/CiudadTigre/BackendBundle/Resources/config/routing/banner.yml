@@ -1,0 +1,30 @@
+banner:
+    path:     /
+    defaults: { _controller: "CiudadTigreBackendBundle:Banner:index" }
+
+banner_show:
+    path:     /{id}/show
+    defaults: { _controller: "CiudadTigreBackendBundle:Banner:show" }
+
+banner_new:
+    path:     /new
+    defaults: { _controller: "CiudadTigreBackendBundle:Banner:new" }
+
+banner_create:
+    path:     /create
+    defaults: { _controller: "CiudadTigreBackendBundle:Banner:create" }
+    requirements: { _method: post }
+
+banner_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CiudadTigreBackendBundle:Banner:edit" }
+
+banner_update:
+    path:     /{id}/update
+    defaults: { _controller: "CiudadTigreBackendBundle:Banner:update" }
+    requirements: { _method: post|put }
+
+banner_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CiudadTigreBackendBundle:Banner:delete" }
+    requirements: { _method: post|delete }
