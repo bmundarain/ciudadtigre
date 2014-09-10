@@ -3,6 +3,8 @@
 {% block body -%}
 <div class="container">
     <h1>Lista de Anunciantes</h1>
+    
+    <a href="{{ path('anunciante_new') }}" class="btn btn-primary">Nuevo Anunciante</a>
 
     <table class="table table-striped">
         <thead>
@@ -97,6 +99,7 @@
     </div>
     
     <a href="{{ path('anunciante_new') }}" class="btn btn-primary">Nuevo Anunciante</a>
+    
 </div>
 
 {% endblock %}

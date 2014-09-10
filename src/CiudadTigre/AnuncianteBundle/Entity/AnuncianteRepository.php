@@ -44,7 +44,7 @@ class AnuncianteRepository extends EntityRepository
         $em = $this->getEntityManager();
         $consulta = $em->createQuery('
                 SELECT a FROM CiudadTigreAnuncianteBundle:Anunciante a
-              ORDER BY a.id ASC');
+              ORDER BY a.nombre ASC');
         
         return $consulta;
     }

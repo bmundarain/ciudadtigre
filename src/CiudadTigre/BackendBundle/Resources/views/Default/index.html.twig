@@ -1,49 +1,9 @@
-{% extends '::frontend.html.twig' %}
+{% extends '::backend.html.twig' %}
 
-{% block section %}
+{% block body %}
 
-<div class="contenedor-gen bg-blanca">
-    <div class="DirBase">
-        <div class="mancha-contenido DirPaddNull">
-        
-            {% if categorias is empty %}
-                No se encontraron categorias!!
-            {% else %}
-            {% set indice = 0 %}
-            {% for categoria in categorias %}
-                <div class="itemDir-base">
-                    <div class="itemDir-imagen"><img src="{{ asset('uploads/images/img-directorio/' ~ categoria.rutafoto) }}">
-                    </div>
-                    <div class="itemDir-txt">
-                            <div class="itemDir-nombre"><a href="{{ path('subcategoria_mostrar', { 'id': categoria.id } ) }}">{{ categoria.nombre }}</a>
-                        </div>
-                        <div class="itemDir-mas"><a href="{{ path('subcategoria_mostrar', { 'id': categoria.id } ) }}"><img src="{{ asset('bundles/ciudadtigreanunciante/images/dir-mas.gif') }}"></a>
-                        </div>
-                        <div class="itemDir-sub">
-                            {% if subcategorias[indice] is empty %}
-                                No se encontraron Subcategorias
-                            {% else %}
-                            {% set i = 0 %}
-                            {% for subcategoria in subcategorias[indice] %}
-                                <a href="{{ path('anunciantes_mostrar', { 'id': subcategoria.id } ) }}">{{ subcategoria.nombre }}</a>                                
-                                {% if i < 2 %}
-                                    {{ ',' }}
-                                {% endif %}
-                                {% set i = i + 1 %}
-                            {% endfor %}
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% set indice = indice + 1 %}
-            {% endfor %}
+{{ parent() }}
 
-            {% endif %}
-            
-        </div>
-        <div class="txt-piepagina">Para publicar, cont&aacute;ctanos al 0424.830.82.01 &frasl; 0283.515.31.58 o escribe a <a href="mailto:ciudaddeltigre@gmail.com">ciudaddeltigre@gmail.com</a><br /><br />&quot;D&eacute;jate ver, p&uacute;blica con nosotros&quot;
-		</div>
-    </div>
-</div>
+<h1>Bienvenidos!!</h1>
 
 {% endblock %}

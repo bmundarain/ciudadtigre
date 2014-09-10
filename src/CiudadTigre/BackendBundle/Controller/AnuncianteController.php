@@ -26,6 +26,8 @@ class AnuncianteController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $paginador = $this->get('ideup.simple_paginator');
+        $paginador->setItemsPerPage(20);
+        $paginador->setMaxPagerItems(5);
         
         $entities = $paginador->paginate($em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->queryTodasLosAnunciantes())->getResult();
         

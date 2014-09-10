@@ -16,5 +16,4 @@ BackendSubcategoria:
         
 backend_portada:
     path:     /
-    defaults: { _controller: CiudadTigreBackendBundle:Anunciante:index }
-    #defaults: { _controller: CiudadTigreBackendBundle:Default:index }
+    defaults: { _controller: CiudadTigreBackendBundle:Default:index }

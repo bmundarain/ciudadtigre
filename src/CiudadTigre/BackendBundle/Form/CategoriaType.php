@@ -17,8 +17,6 @@ class CategoriaType extends AbstractType
         $builder
             ->add('nombre')
             ->add('foto', 'file', array('required' => true))
-//            ->add('createdAt')
-//            ->add('updatedAt')
         ;
     }
     

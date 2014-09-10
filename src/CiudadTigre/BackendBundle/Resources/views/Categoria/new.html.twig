@@ -4,15 +4,38 @@
 <div class="container">
     <h1>Crear Categoria</h1>
 
-    {{ form(form) }}
-
-    {% set hide_edit, hide_delete = false, false %}
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('categoria') }}">
-                Volver a la lista
-            </a>
-        </li>
-    </ul>
+    {{ form_start(form) }}
+    <div>
+        {{ form_errors(form) }}
+        
+        <div class="form-group">
+            <label class="control-label">Nombre:</label>
+            {{ form_errors(form.nombre) }}
+            {{ form_widget(form.nombre, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.foto, 'Imagen:') }}
+            {{ form_errors(form.foto) }}
+            {{ form_widget(form.foto) }}
+            <p class="help-block">Tamaño máximo: 500 KB. Formato preferido: JPEG.</p>
+        </div>
+        
+        {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
+    </div>
+    
+    {{ form_end(form) }}
+    
+    <br>
+    
+    <div class="row">
+        <ul>
+            <li>
+                <a href="{{ path('categoria') }}">
+                    Volver a la lista
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 {% endblock %}
