@@ -5,6 +5,14 @@ BackendAnunciante:
 BackendBanner:
     resource: "@CiudadTigreBackendBundle/Resources/config/routing/banner.yml"
     prefix:   /banner
+    
+BackendCategoria:
+    resource: "@CiudadTigreBackendBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+
+BackendSubcategoria:
+        resource: "@CiudadTigreBackendBundle/Resources/config/routing/subcategoria.yml"
+        prefix:   /subcategoria
         
 backend_portada:
     path:     /

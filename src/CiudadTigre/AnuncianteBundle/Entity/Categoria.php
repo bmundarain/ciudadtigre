@@ -3,6 +3,8 @@
 namespace CiudadTigre\AnuncianteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Categoria
@@ -49,11 +51,21 @@ class Categoria
      * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updatedAt;
+    
+    /**
+    * @Assert\Image(maxSize = "20k")
+    */
+    protected $foto;
 
     
     public function __construct() {
         $this->setCreatedAt(new \DateTime());
         $this->setUpdatedAt(new \DateTime());
+    }
+    
+    public function __toString() 
+    {
+        return $this->getNombre();
     }
 
     /**
@@ -174,5 +186,33 @@ class Categoria
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    /**
+     * @param UploadedFile $foto
+     */
+    public function setFoto(UploadedFile $foto = null)
+    {
+        $this->foto = $foto;
+    }
+    
+    /**
+     * @return UploadedFile
+     */
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+    
+    public function subirFoto()
+    {
+        if (null === $this->foto) {
+            return;
+        }
+        
+        $directorioDestino = __DIR__.'/../../../../web/uploads/images/img-directorio';
+        $nombreArchivoFoto = uniqid('ciudad-').'-directorio.jpg';
+        $this->foto->move($directorioDestino, $nombreArchivoFoto);
+        $this->setRutafoto($nombreArchivoFoto);
     }
 }

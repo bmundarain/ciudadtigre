@@ -53,7 +53,7 @@ class Subcategoria
     /**
      * @var integer
      *
-     * @ORM\Column(name="promocionado", type="integer", nullable=true)
+     * @ORM\Column(name="promocionado", type="integer", nullable=false)
      */
     private $promocionado;
 

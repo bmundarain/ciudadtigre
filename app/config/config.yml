@@ -5,6 +5,7 @@ imports:
 parameters:
     directorio.imagenes.anunciante: %kernel.root_dir%/../web/uploads/images/img-tiendas/
     directorio.imagenes.banner:     %kernel.root_dir%/../web/uploads/images/banners/
+    directorio.imagenes.categoria:  %kernel.root_dir%/../web/uploads/images/img-directorio/
     
 framework:
     #esi:             ~

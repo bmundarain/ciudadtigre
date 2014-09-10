@@ -1,0 +1,30 @@
+subcategoria:
+    path:     /
+    defaults: { _controller: "CiudadTigreBackendBundle:Subcategoria:index" }
+
+subcategoria_show:
+    path:     /{id}/show
+    defaults: { _controller: "CiudadTigreBackendBundle:Subcategoria:show" }
+
+subcategoria_new:
+    path:     /new
+    defaults: { _controller: "CiudadTigreBackendBundle:Subcategoria:new" }
+
+subcategoria_create:
+    path:     /create
+    defaults: { _controller: "CiudadTigreBackendBundle:Subcategoria:create" }
+    requirements: { _method: post }
+
+subcategoria_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CiudadTigreBackendBundle:Subcategoria:edit" }
+
+subcategoria_update:
+    path:     /{id}/update
+    defaults: { _controller: "CiudadTigreBackendBundle:Subcategoria:update" }
+    requirements: { _method: post|put }
+
+subcategoria_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CiudadTigreBackendBundle:Subcategoria:delete" }
+    requirements: { _method: post|delete }

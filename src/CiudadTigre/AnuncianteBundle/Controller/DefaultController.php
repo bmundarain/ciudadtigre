@@ -28,8 +28,8 @@ class DefaultController extends Controller
         
         foreach ($categorias as $categoria)
         {
-            $subcategorias[] = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->findBy(array('categoria' => $categoria->getId(), 'promocionado' => 1),
-                                                                                                      array('id' => 'ASC'),
+            $subcategorias[] = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->findBy(array('categoria' => $categoria->getId()),
+                                                                                                      array('promocionado' => 'ASC'),
                                                                                                       3);
         }
         

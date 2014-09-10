@@ -4,72 +4,69 @@ namespace CiudadTigre\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
-use CiudadTigre\AnuncianteBundle\Entity\Banner;
-use CiudadTigre\BackendBundle\Form\BannerType;
+use CiudadTigre\AnuncianteBundle\Entity\Categoria;
+use CiudadTigre\BackendBundle\Form\CategoriaType;
 
 /**
- * Banner controller.
+ * Categoria controller.
  *
  */
-class BannerController extends Controller
+class CategoriaController extends Controller
 {
 
     /**
-     * Lists all Banner entities.
+     * Lists all Categoria entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('CiudadTigreAnuncianteBundle:Banner')->findAll();
+        $entities = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->findAll();
 
-        return $this->render('CiudadTigreBackendBundle:Banner:index.html.twig', array(
+        return $this->render('CiudadTigreBackendBundle:Categoria:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Banner entity.
+     * Creates a new Categoria entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Banner();
+        $entity = new Categoria();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             
-            //$directorioFotos = $this->container->getParameter('directorio.imagenes.banner');
             $entity->subirFoto();
             
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('banner_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('categoria_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('CiudadTigreBackendBundle:Banner:new.html.twig', array(
+        return $this->render('CiudadTigreBackendBundle:Categoria:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a Banner entity.
+     * Creates a form to create a Categoria entity.
      *
-     * @param Banner $entity The entity
+     * @param Categoria $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Banner $entity)
+    private function createCreateForm(Categoria $entity)
     {
-        $form = $this->createForm(new BannerType(), $entity, array(
-            'action' => $this->generateUrl('banner_create'),
+        $form = $this->createForm(new CategoriaType(), $entity, array(
+            'action' => $this->generateUrl('categoria_create'),
             'method' => 'POST',
         ));
 
@@ -79,60 +76,60 @@ class BannerController extends Controller
     }
 
     /**
-     * Displays a form to create a new Banner entity.
+     * Displays a form to create a new Categoria entity.
      *
      */
     public function newAction()
     {
-        $entity = new Banner();
+        $entity = new Categoria();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('CiudadTigreBackendBundle:Banner:new.html.twig', array(
+        return $this->render('CiudadTigreBackendBundle:Categoria:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Banner entity.
+     * Finds and displays a Categoria entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Banner')->find($id);
+        $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Banner entity.');
+            throw $this->createNotFoundException('Unable to find Categoria entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('CiudadTigreBackendBundle:Banner:show.html.twig', array(
+        return $this->render('CiudadTigreBackendBundle:Categoria:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Banner entity.
+     * Displays a form to edit an existing Categoria entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Banner')->find($id);
+        $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Banner entity.');
+            throw $this->createNotFoundException('Unable to find Categoria entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('CiudadTigreBackendBundle:Banner:edit.html.twig', array(
+        return $this->render('CiudadTigreBackendBundle:Categoria:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -140,16 +137,16 @@ class BannerController extends Controller
     }
 
     /**
-    * Creates a form to edit a Banner entity.
+    * Creates a form to edit a Categoria entity.
     *
-    * @param Banner $entity The entity
+    * @param Categoria $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Banner $entity)
+    private function createEditForm(Categoria $entity)
     {
-        $form = $this->createForm(new BannerType(), $entity, array(
-            'action' => $this->generateUrl('banner_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new CategoriaType(), $entity, array(
+            'action' => $this->generateUrl('categoria_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -158,32 +155,32 @@ class BannerController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Banner entity.
+     * Edits an existing Categoria entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Banner')->find($id);
+        $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Banner entity.');
+            throw $this->createNotFoundException('Unable to find Categoria entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $rutaFotoOriginal = $editForm->getData()->getRuta();
         $editForm->handleRequest($request);
-        
+
         if ($editForm->isValid()) {
             
             if (null == $entity->getFoto()) {
                 // La foto original no se modifica, recuperar su ruta
-                $entity->setRuta($rutaFotoOriginal);
+                $entity->setRutafoto($rutaFotoOriginal);
             } else {
-                // La foto del banner se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes.banner');
+                // La foto de la categoria se ha modificado
+                $directorioFotos = $this->container->getParameter('directorio.imagenes.categoria');
                 
                 $entity->subirFoto();
                 // Borrar la foto anterior
@@ -199,17 +196,17 @@ class BannerController extends Controller
             
             $em->flush();
 
-            return $this->redirect($this->generateUrl('banner_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('categoria_edit', array('id' => $id)));
         }
-        
-        return $this->render('CiudadTigreBackendBundle:Banner:edit.html.twig', array(
+
+        return $this->render('CiudadTigreBackendBundle:Categoria:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Banner entity.
+     * Deletes a Categoria entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -219,13 +216,13 @@ class BannerController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Banner')->find($id);
+            $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Categoria')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Banner entity.');
+                throw $this->createNotFoundException('Unable to find Categoria entity.');
             }
             
-            $directorioFotos = $this->container->getParameter('directorio.imagenes.banner');
+            $directorioFotos = $this->container->getParameter('directorio.imagenes.directorio');
 
             $em->remove($entity);
             $em->flush();
@@ -239,11 +236,11 @@ class BannerController extends Controller
             }
         }
 
-        return $this->redirect($this->generateUrl('banner'));
+        return $this->redirect($this->generateUrl('categoria'));
     }
 
     /**
-     * Creates a form to delete a Banner entity by id.
+     * Creates a form to delete a Categoria entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -252,7 +249,7 @@ class BannerController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('banner_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('categoria_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
