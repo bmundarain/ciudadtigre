@@ -1,22 +1,25 @@
-{% extends '::base.html.twig' %}
+{% extends '::backend.html.twig' %}
 
 {% block body -%}
+
+{{ parent() }}
+
 <div class="container">
     <h2>Banner</h2>
 
-    <table class="record_properties">
+    <table class="table">
         <tbody>
             <tr>
-                <th>Banner:</th>
-                <td><img src="{{ asset('/uploads/images/banners/' ~ entity.ruta) }}"></td>
+                <th width="20%">Banner:</th>
+                <td width="80%"><img src="{{ asset('/uploads/images/banners/' ~ entity.ruta) }}"></td>
             </tr>
             <tr>
-                <th>Createdat</th>
-                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+                <th width="20%">Createdat</th>
+                <td width="80%">{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Updatedat</th>
-                <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+                <th width="20%">Updatedat</th>
+                <td width="80%">{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
             </tr>
         </tbody>
     </table>

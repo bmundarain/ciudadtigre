@@ -1,30 +1,29 @@
-{% extends '::base.html.twig' %}
+{% extends '::backend.html.twig' %}
 
 {% block body -%}
+
+{{ parent() }}
+
 <div class="container">
     <h2>Subcategoria</h2>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
-                <th>Nombre</th>
-                <td>{{ entity.nombre }}</td>
+                <th width="20%">Nombre</th>
+                <td width="80%">{{ entity.nombre }}</td>
             </tr>
             <tr>
-                <th>Rutafoto</th>
-                <td>{{ entity.rutafoto }}</td>
+                <th width="20%">Createdat</th>
+                <td width="80%">{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Createdat</th>
-                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+                <th width="20%">Updatedat</th>
+                <td width="80%">{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Updatedat</th>
-                <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Promocionado</th>
-                <td>{{ entity.promocionado }}</td>
+                <th width="20%">Peso</th>
+                <td width="80%">{{ entity.promocionado }}</td>
             </tr>
         </tbody>
     </table>
@@ -32,12 +31,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('subcategoria') }}">
-            Back to the list
+            Volver a la lista
         </a>
     </li>
     <li>
         <a href="{{ path('subcategoria_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
