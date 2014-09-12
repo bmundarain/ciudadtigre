@@ -19,10 +19,10 @@ security:
 #                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
-        backend_admin:
-            pattern:     ^/admin
-            provider:    administradores
-            http_basic:  ~
+#        backend_admin:
+#            pattern:     ^/admin
+#            provider:    administradores
+#            http_basic:  ~
             
         backend:
             pattern:     ^/backend
@@ -33,23 +33,23 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
-        secured_area:
-            pattern:    ^/demo/secured/
-            form_login:
-                check_path: _security_check
-                login_path: _demo_login
-            logout:
-                path:   _demo_logout
-                target: _demo
+#        login:
+#            pattern:  ^/demo/secured/login$
+#            security: false
+#
+#        secured_area:
+#            pattern:    ^/demo/secured/
+#            form_login:
+#                check_path: _security_check
+#                login_path: _demo_login
+#            logout:
+#                path:   _demo_logout
+#                target: _demo
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/admin/*, roles: ROLE_ADMIN }
+        #- { path: ^/admin/*, roles: ROLE_ADMIN }
         - { path: ^/backend/*, roles: ROLE_ADMIN }
