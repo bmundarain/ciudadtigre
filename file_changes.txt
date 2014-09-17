@@ -22,3 +22,4 @@ login.html.twig	-/Added	src/CiudadTigre/BackendBundle/Resources/views/Default/lo
 navbar.html.twig	-/Added	src/CiudadTigre/BackendBundle/Resources/views/Default/navbar.html.twig	
 Usuarios.php	Added/Modified	src/CiudadTigre/BackendBundle/DataFixtures/ORM/Usuarios.php	
 base.html.twig	-/Modified	app/Resources/views/base.html.twig	
+messages.es.xliff	-/Added	src/CiudadTigre/BackendBundle/Resources/translations/messages.es.xliff	

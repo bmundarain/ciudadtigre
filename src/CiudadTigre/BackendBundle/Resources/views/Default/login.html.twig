@@ -3,14 +3,13 @@
 {% block title %}Ciudad del Tigre - Área de Administración{% endblock %}
 
 {% block body %}
-
-{% if error %}
-    <div class="alert alert-error">{{ error.message }}</div>
-{% endif %}
     
     <div class="container">
         <div class="row">
             <div class="col-md-4">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.message | trans }}</div>
+                {% endif %}
                 <form class="form-signin" role="form" action="{{ path('backend_login_check') }}" method="post">
                     <h2 class="form-signin-heading">{{ "Accede a tu cuenta" | trans }}</h2>
                     <input type="text" class="form-control" placeholder="{{ "Usuario" | trans }}" id="username" name="_username" value="{{ last_username }}" required autofocus/>
