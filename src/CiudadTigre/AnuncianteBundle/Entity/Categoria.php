@@ -34,7 +34,7 @@ class Categoria
     /**
      * @var string
      *
-     * @ORM\Column(name="rutafoto", type="string", length=255, nullable=false)
+     * @ORM\Column(name="rutafoto", type="string", length=255, nullable=true)
      */
     private $rutafoto;
 

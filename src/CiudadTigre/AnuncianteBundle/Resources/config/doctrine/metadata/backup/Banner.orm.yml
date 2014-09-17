@@ -1,7 +1,6 @@
-Categoria:
+Banner:
     type: entity
-    table: categoria
-    repositoryClass: CiudadTigre\AnuncianteBundle\Entity\CategoriaRepository
+    table: banner
     id:
         id:
             type: integer
@@ -12,15 +11,9 @@ Categoria:
             generator:
                 strategy: IDENTITY
     fields:
-        nombre:
+        ruta:
             type: string
             nullable: false
-            length: 50
-            fixed: false
-            comment: ''
-        rutafoto:
-            type: string
-            nullable: true
             length: 255
             fixed: false
             comment: ''

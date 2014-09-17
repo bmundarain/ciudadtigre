@@ -1,5 +1,16 @@
 security:
     firewalls:
+        backend:
+            pattern:    ^/backend
+            provider:   administradores
+            anonymous:  ~
+            form_login:
+                login_path: /backend/login
+                check_path: /backend/login_check
+            logout:
+                path:   backend_logout
+                target: /backend
+
         secured_area:
             pattern:   ^/
             anonymous: ~
@@ -7,16 +18,20 @@ security:
                 realm: "Secured Demo Area"
 
     access_control:
+        - { path: ^/backend/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backend/, roles: ROLE_ADMIN }
         # Include the following line to also secure the /admin path itself
         # - { path: ^/admin$, roles: ROLE_ADMIN }
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    ryan:  { password: ryanpass, roles: 'ROLE_USER' }
-                    admin: { password: qwerty, roles: 'ROLE_ADMIN' }
+        administradores:
+            entity: { class: CiudadTigre\AnuncianteBundle\Entity\Administrador, property: login }
+#        in_memory:
+#            memory:
+#                users:
+#                    ryan:  { password: ryanpass, roles: 'ROLE_USER' }
+#                    admin: { password: qwerty, roles: 'ROLE_ADMIN' }
 
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
+        CiudadTigre\AnuncianteBundle\Entity\Administrador: { algorithm: sha512, iterations: 10 }

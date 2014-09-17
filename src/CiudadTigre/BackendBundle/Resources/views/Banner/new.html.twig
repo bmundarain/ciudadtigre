@@ -7,15 +7,31 @@
 <div class="container">
     <h1>Crear Banner</h1>
 
-    {{ form(form) }}
+    {{ form_start(form) }}
+    <div>
+        {{ form_errors(form) }}
+            
+        <div class="form-group">
+            {{ form_label(form.foto, 'Banner:') }}
+            {{ form_errors(form.foto) }}
+            {{ form_widget(form.foto) }}
+            <p class="help-block"><strong>Medidas: </strong> 900x160 píxeles. <strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+        </div>
+        
+        {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
+    </div>
     
-    {% set hide_edit, hide_delete = false, false %}
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('banner') }}">
-                Volver a la lista
-            </a>
-        </li>
-    </ul>
-</div>
+    {{ form_end(form) }}
+    
+    <br>
+    
+    <div class="row">
+        <ul>
+            <li>
+                <a href="{{ path('banner') }}">
+                    Volver a la lista
+                </a>
+            </li>
+        </ul>
+    </div>
 {% endblock %}

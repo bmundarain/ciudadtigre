@@ -131,7 +131,7 @@ class Anunciante
     /**
      * @var string
      *
-     * @ORM\Column(name="rutaimg1", type="string", length=255, nullable=false)
+     * @ORM\Column(name="rutaimg1", type="string", length=255, nullable=true)
      */
     private $rutaimg1;
 

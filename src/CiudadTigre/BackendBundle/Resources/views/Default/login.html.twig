@@ -1,0 +1,28 @@
+{% extends '::backend.html.twig' %}
+
+{% block title %}Ciudad del Tigre - Área de Administración{% endblock %}
+
+{% block body %}
+
+{% if error %}
+    <div class="alert alert-error">{{ error.message }}</div>
+{% endif %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-signin" role="form" action="{{ path('backend_login_check') }}" method="post">
+                    <h2 class="form-signin-heading">{{ "Accede a tu cuenta" | trans }}</h2>
+                    <input type="text" class="form-control" placeholder="{{ "Usuario" | trans }}" id="username" name="_username" value="{{ last_username }}" required autofocus/>
+                    <input type="password" class="form-control" placeholder="{{ "Contraseña" | trans }}" required id="password" name="_password" />
+                    <label class="checkbox">
+                        {{ "No cerrar sesión" | trans }}
+                        <input type="checkbox" value="remember-me" id="no_cerrar" name="_remember_me" />
+                    </label>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">{{ "Entrar" | trans }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

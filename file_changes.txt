@@ -1,0 +1,24 @@
+Last changes until 17/09/2014 15:10:00
+backend.html.twig	-/Modified	app/Resources/views/backend.html.twig	
+Categoria.orm.yml	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Categoria.orm.yml	
+CategoriaType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/CategoriaType.php	
+Administrador.orm.yml	-/Added	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Administrador.orm.yml	
+Anunciante.orm.yml	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Anunciante.orm.yml	
+Anunciante.orm.yml	Modified/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/backup/Anunciante.orm.yml	
+security.yml	-/Modified	app/config/security.yml	
+Categoria.orm.yml	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/backup/Categoria.orm.yml	
+BannerController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/BannerController.php	
+DefaultController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/DefaultController.php	
+error.html.twig	-/Added	app/Resources/TwigBundle/views/Exception/error.html.twig	
+routing.yml	-/Modified	src/CiudadTigre/BackendBundle/Resources/config/routing.yml	
+Banner.orm.yml	Added/-	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/backup/Banner.orm.yml	
+new.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Banner/new.html.twig	
+detalle_anunciante.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/views/Default/detalle_anunciante.html.twig	
+Administrador.php	-/Added	src/CiudadTigre/AnuncianteBundle/Entity/Administrador.php	
+AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	
+Anunciante.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	
+Categoria.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Categoria.php	
+login.html.twig	-/Added	src/CiudadTigre/BackendBundle/Resources/views/Default/login.html.twig	
+navbar.html.twig	-/Added	src/CiudadTigre/BackendBundle/Resources/views/Default/navbar.html.twig	
+Usuarios.php	Added/Modified	src/CiudadTigre/BackendBundle/DataFixtures/ORM/Usuarios.php	
+base.html.twig	-/Modified	app/Resources/views/base.html.twig	

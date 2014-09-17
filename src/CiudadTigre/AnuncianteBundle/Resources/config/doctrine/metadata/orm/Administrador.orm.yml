@@ -1,7 +1,6 @@
-Categoria:
+Administrador:
     type: entity
-    table: categoria
-    repositoryClass: CiudadTigre\AnuncianteBundle\Entity\CategoriaRepository
+    table: administrador
     id:
         id:
             type: integer
@@ -14,26 +13,26 @@ Categoria:
     fields:
         nombre:
             type: string
-            nullable: false
-            length: 50
+            nullable: true
+            length: 100
             fixed: false
             comment: ''
-        rutafoto:
+        login:
             type: string
-            nullable: true
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+        password:
+            type: string
+            nullable: false
             length: 255
             fixed: false
             comment: ''
-        createdAt:
-            type: datetime
+        salt:
+            type: string
             nullable: false
+            length: 255
+            fixed: false
             comment: ''
-            column: created_at
-        updatedAt:
-            type: datetime
-            nullable: false
-            comment: ''
-            column: updated_at
-    lifecycleCallbacks:
-        prePersist: [ setCreatedAtValue ]
-        preUpdate: [ setUpdatedAtValue ]
+    lifecycleCallbacks: {  }

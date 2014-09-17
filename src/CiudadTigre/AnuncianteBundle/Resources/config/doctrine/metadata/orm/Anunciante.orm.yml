@@ -89,7 +89,7 @@ Anunciante:
             comment: ''
         rutaimg1:
             type: string
-            nullable: false
+            nullable: true
             length: 255
             fixed: false
             comment: ''

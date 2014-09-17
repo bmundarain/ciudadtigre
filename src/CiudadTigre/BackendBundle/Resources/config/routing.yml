@@ -17,3 +17,13 @@ BackendSubcategoria:
 backend_portada:
     path:     /
     defaults: { _controller: CiudadTigreBackendBundle:Default:index }
+
+backend_login:
+    pattern: /login
+    defaults: { _controller: CiudadTigreBackendBundle:Default:login }
+    
+backend_login_check:
+    pattern: /login_check
+
+backend_logout:
+    pattern: /logout
