@@ -4,16 +4,37 @@
 
 {{ parent() }}
 
+<div class="container">
     <h1>Editando Banner</h1>
 
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('banner') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form_start(edit_form) }}
+    <div>
+        {{ form_errors(edit_form) }}
+            
+        <div class="form-group">
+            {{ form_label(edit_form.foto, 'Banner:') }}
+            {{ form_errors(edit_form.foto) }}
+            {{ form_widget(edit_form.foto) }}
+            <p class="help-block"><strong>Medidas: </strong> 900x160 píxeles. <strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+        </div>
+        
+        {{ form_widget(edit_form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
+    </div>
+    
+    {{ form_end(edit_form) }}
+    
+    <br>
+    
+    <div class="row">
+        <ul>
+            <li>
+                <a href="{{ path('banner') }}">
+                    Volver a la lista
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>
+    
+</div>
 {% endblock %}

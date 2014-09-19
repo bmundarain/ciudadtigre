@@ -4,16 +4,43 @@
 
 {{ parent() }}
 
-    <h1>Categoria edit</h1>
+<div class="container">
+    <h1>Editando Categoria</h1>
 
-    {{ form(edit_form) }}
+    {{ form_start(edit_form) }}
+    <div>
+        {{ form_errors(edit_form) }}
+        
+        <div class="form-group">
+            <label class="control-label">Nombre:</label>
+            {{ form_errors(edit_form.nombre) }}
+            {{ form_widget(edit_form.nombre, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(edit_form.foto, 'Imagen:') }}
+            {{ form_errors(edit_form.foto) }}
+            {{ form_widget(edit_form.foto) }}
+            <p class="help-block">Tamaño máximo: 500 KB. Formato preferido: JPEG.</p>
+        </div>
+        
+        {{ form_widget(edit_form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
+    </div>
+    
+    {{ form_end(edit_form) }}
+    
+    <br>
+    
+    <div class="row">
+        <ul>
+            <li>
+                <a href="{{ path('categoria') }}">
+                    Volver a la lista
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>
+</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('categoria') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
 {% endblock %}
