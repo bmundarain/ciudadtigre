@@ -23,9 +23,9 @@ class AnuncianteType extends AbstractType
             ->add('email', 'email', array('attr' => array('class' => 'form-control')))
             ->add('telefono1', 'text', array('attr' => array('class' => 'form-control')))
             ->add('telefono2', 'text', array('required' => false, 'attr' => array('class' => 'form-control')))
-            ->add('web', 'url', array('attr' => array('class' => 'form-control')))
-            ->add('facebook', 'text', array('attr' => array('class' => 'form-control')))
-            ->add('twitter', 'text', array('attr' => array('class' => 'form-control')))
+            ->add('web', 'text', array('required' => false, 'attr' => array('class' => 'form-control')))
+            ->add('facebook', 'text', array('required' => false, 'attr' => array('class' => 'form-control')))
+            ->add('twitter', 'text', array('required' => false, 'attr' => array('class' => 'form-control')))
             ->add('hits', 'number', array('attr' => array('class' => 'form-control')))
             ->add('horario', 'textarea', array('attr' => array('class' => 'form-control')))
             ->add('foto1', 'file', array('required' => false))
@@ -38,7 +38,13 @@ class AnuncianteType extends AbstractType
 //            ->add('updatedAt')
             ->add('mapa', 'textarea', array('attr' => array('class' => 'form-control')))
 //            ->add('promocionado')
-            ->add('subcategoria')
+            ->add('subcategoria', 'entity', array(
+                'class'       => 'CiudadTigreAnuncianteBundle:Subcategoria',
+                'property'    => 'nombre',
+                'empty_value' => 'Seleccione',
+                'required'    => true,
+                'attr'        => array('class' => 'form-control')
+                ))
         ;
     }
     

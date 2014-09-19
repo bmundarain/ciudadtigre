@@ -18,6 +18,7 @@
                         <li>Facebook: {{ anunciante.facebook }}</li>
                         <li>Twitter: {{ anunciante.twitter }}</li>
                         <li>Horario: {{ anunciante.horario }}</li>
+                        <li>Hits: {{ anunciante.hits }}</li>
                     </ul>
                 </div>
             </div>
@@ -29,8 +30,8 @@
               </ul>
             </div>
             <div class="DetalleTienda-map">
-                <!--<iframe class="DetalleTienda-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15767.939372915507!2d-64.23511299302723!3d8.8810005128081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2s!4v1407485586802"></iframe>-->
-                <iframe class="DetalleTienda-iframe" src="https://mapsengine.google.com/map/embed?mid=z-QEbqNSrANI.k0pr7kMbdsy4"></iframe>
+                <!--<iframe class="DetalleTienda-iframe" src="https://mapsengine.google.com/map/embed?mid=z-QEbqNSrANI.k0pr7kMbdsy4"></iframe>-->
+                <iframe class="DetalleTienda-iframe" src="{{ anunciante.mapa }}"></iframe>
             </div>
 
 

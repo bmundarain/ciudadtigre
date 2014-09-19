@@ -49,6 +49,12 @@ class Administrador implements UserInterface
      * @ORM\Column(name="salt", type="string", length=255, nullable=false)
      */
     private $salt;
+    
+    
+    public function __toString() 
+    {
+        return $this->getLogin();
+    }
 
 
     /**
