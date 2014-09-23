@@ -53,3 +53,27 @@ CategoriaController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/Cate
 edit.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Categoria/edit.html.twig	*
 AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	*
 Upload to server -> 19/09/2014 17:39:00
+
+Last changes until 23/09/2014 15:00:00
+AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	*
+edit.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/edit.html.twig	*
+edit.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Banner/edit.html.twig	*
+new.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/new.html.twig	*
+show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/show.html.twig	*
+BannerController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/BannerController.php	*
+index.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/index.html.twig *	
+show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Banner/show.html.twig	*
+index.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Banner/index.html.twig	*
+new.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Banner/new.html.twig	*
+index.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Categoria/index.html.twig	*
+edit.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Categoria/edit.html.twig	*
+new.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Categoria/new.html.twig	*
+show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Categoria/show.html.twig	*
+edit.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Subcategoria/edit.html.twig*	
+index.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Subcategoria/index.html.twig*	
+new.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Subcategoria/new.html.twig*	
+show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Subcategoria/show.html.twig*	
+CategoriaController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/CategoriaController.php	*
+SubcategoriaController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/SubcategoriaController.php	*
+index.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/views/Default/index.html.twig *	
+Upload to server -> 23/09/2014 15:00:00
