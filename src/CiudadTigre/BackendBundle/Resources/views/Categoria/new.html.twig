@@ -6,6 +6,18 @@
 
 <div class="container">
     <h1>Crear Categoria</h1>
+    
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
 
     {{ form_start(form) }}
     <div>
@@ -21,7 +33,7 @@
             {{ form_label(form.foto, 'Imagen:') }}
             {{ form_errors(form.foto) }}
             {{ form_widget(form.foto) }}
-            <p class="help-block">Tamaño máximo: 500 KB. Formato preferido: JPEG.</p>
+            <p class="help-block"><strong>Medidas: </strong> 47x46 píxeles. <strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
         </div>
         
         {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}

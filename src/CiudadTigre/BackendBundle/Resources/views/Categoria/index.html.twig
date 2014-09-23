@@ -7,6 +7,20 @@
 <div class="container">
     <h1>Categorias</h1>
     
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    
+    <br>
+    
     <a href="{{ path('categoria_new') }}" class="btn btn-primary">Nuevo</a>
 
     <table class="table table-striped">

@@ -49,8 +49,14 @@ class BannerController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro insertado!');
 
             return $this->redirect($this->generateUrl('banner_show', array('id' => $entity->getId())));
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->render('CiudadTigreBackendBundle:Banner:new.html.twig', array(
@@ -198,9 +204,13 @@ class BannerController extends Controller
             }
             
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro actualizado!');
 
             return $this->redirect($this->generateUrl('banner_edit', array('id' => $id)));
         }
+        
+        $this->get('session')->getFlashBag()->add('error', $editForm->getErrorsAsString());
         
         return $this->render('CiudadTigreBackendBundle:Banner:edit.html.twig', array(
             'entity'      => $entity,
@@ -230,6 +240,8 @@ class BannerController extends Controller
             $em->remove($entity);
             $em->flush();
             
+            $this->get('session')->getFlashBag()->add('notice', 'Registro borrado!');
+            
             // Borrar la foto
             $fs = new Filesystem();
             try {
@@ -237,6 +249,10 @@ class BannerController extends Controller
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando la imagen en ".$e->getPath();
             }
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->redirect($this->generateUrl('banner'));

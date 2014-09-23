@@ -12,7 +12,7 @@
             {% set indice = 0 %}
             {% for categoria in categorias %}
                 <div class="itemDir-base">
-                    <div class="itemDir-imagen"><img src="{{ asset('uploads/images/img-directorio/' ~ categoria.rutafoto) }}">
+                    <div class="itemDir-imagen"><img width="47" height="45" src="{{ asset('uploads/images/img-directorio/' ~ categoria.rutafoto) }}">
                     </div>
                     <div class="itemDir-txt">
                             <div class="itemDir-nombre"><a href="{{ path('subcategoria_mostrar', { 'id': categoria.id } ) }}">{{ categoria.nombre }}</a>

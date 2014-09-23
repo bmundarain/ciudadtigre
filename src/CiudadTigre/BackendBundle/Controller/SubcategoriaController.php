@@ -43,8 +43,14 @@ class SubcategoriaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro insertado!');
 
             return $this->redirect($this->generateUrl('subcategoria_show', array('id' => $entity->getId())));
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:new.html.twig', array(
@@ -171,9 +177,13 @@ class SubcategoriaController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro actualizado!');
 
             return $this->redirect($this->generateUrl('subcategoria_edit', array('id' => $id)));
         }
+        
+        $this->get('session')->getFlashBag()->add('error', $editForm->getErrorsAsString());
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:edit.html.twig', array(
             'entity'      => $entity,
@@ -200,6 +210,12 @@ class SubcategoriaController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro borrado!');
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->redirect($this->generateUrl('subcategoria'));

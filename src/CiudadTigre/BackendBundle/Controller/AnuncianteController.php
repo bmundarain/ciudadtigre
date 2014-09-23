@@ -65,8 +65,14 @@ class AnuncianteController extends Controller
             
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro insertado!');
 
             return $this->redirect($this->generateUrl('anunciante_show', array('id' => $entity->getId())));
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->render('CiudadTigreBackendBundle:Anunciante:new.html.twig', array(
@@ -152,6 +158,7 @@ class AnuncianteController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'errors'      => '',
         ));
     }
 
@@ -257,9 +264,13 @@ class AnuncianteController extends Controller
             }
             
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro actualizado!');
 
             return $this->redirect($this->generateUrl('anunciante_edit', array('id' => $id)));
         }
+        
+        $this->get('session')->getFlashBag()->add('error', $editForm->getErrorsAsString());
 
         return $this->render('CiudadTigreBackendBundle:Anunciante:edit.html.twig', array(
             'entity'      => $entity,
@@ -287,6 +298,8 @@ class AnuncianteController extends Controller
             $em->remove($entity);
             $em->flush();
             
+            $this->get('session')->getFlashBag()->add('notice', 'Registro borrado!');
+            
             $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
             
             // Borrar la foto
@@ -298,6 +311,10 @@ class AnuncianteController extends Controller
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando laa imágenes en ".$e->getPath();
             }
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->redirect($this->generateUrl('anunciante'));

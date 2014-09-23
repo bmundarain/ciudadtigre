@@ -4,6 +4,8 @@ namespace CiudadTigre\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 use CiudadTigre\AnuncianteBundle\Entity\Categoria;
 use CiudadTigre\BackendBundle\Form\CategoriaType;
@@ -46,8 +48,14 @@ class CategoriaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro insertado!');
 
             return $this->redirect($this->generateUrl('categoria_show', array('id' => $entity->getId())));
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->render('CiudadTigreBackendBundle:Categoria:new.html.twig', array(
@@ -170,7 +178,7 @@ class CategoriaController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
-        $rutaFotoOriginal = $editForm->getData()->getRuta();
+        $rutaFotoOriginal = $editForm->getData()->getRutafoto();
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
@@ -195,9 +203,13 @@ class CategoriaController extends Controller
             }
             
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Registro actualizado!');
 
             return $this->redirect($this->generateUrl('categoria_edit', array('id' => $id)));
         }
+        
+        $this->get('session')->getFlashBag()->add('error', $editForm->getErrorsAsString());
 
         return $this->render('CiudadTigreBackendBundle:Categoria:edit.html.twig', array(
             'entity'      => $entity,
@@ -227,6 +239,8 @@ class CategoriaController extends Controller
             $em->remove($entity);
             $em->flush();
             
+            $this->get('session')->getFlashBag()->add('notice', 'Registro borrado!');
+            
             // Borrar la foto
             $fs = new Filesystem();
             try {
@@ -234,6 +248,10 @@ class CategoriaController extends Controller
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando la imagen en ".$e->getPath();
             }
+        }
+        else
+        {
+            $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->redirect($this->generateUrl('categoria'));
