@@ -118,7 +118,7 @@ Anunciante:
         mapa:
             type: string
             nullable: true
-            length: 45
+            length: 500
             fixed: false
             comment: ''
         promocionado:
