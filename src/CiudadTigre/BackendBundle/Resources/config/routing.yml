@@ -1,3 +1,7 @@
+BackendAdministrador:
+        resource: "@CiudadTigreBackendBundle/Resources/config/routing/administrador.yml"
+        prefix:   /administrador
+
 BackendAnunciante:
     resource: "@CiudadTigreBackendBundle/Resources/config/routing/anunciante.yml"
     prefix:   /anunciante

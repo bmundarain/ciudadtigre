@@ -1,0 +1,30 @@
+administrador:
+    path:     /
+    defaults: { _controller: "CiudadTigreBackendBundle:Administrador:index" }
+
+administrador_show:
+    path:     /{id}/show
+    defaults: { _controller: "CiudadTigreBackendBundle:Administrador:show" }
+
+administrador_new:
+    path:     /new
+    defaults: { _controller: "CiudadTigreBackendBundle:Administrador:new" }
+
+administrador_create:
+    path:     /create
+    defaults: { _controller: "CiudadTigreBackendBundle:Administrador:create" }
+    requirements: { _method: post }
+
+administrador_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CiudadTigreBackendBundle:Administrador:edit" }
+
+administrador_update:
+    path:     /{id}/update
+    defaults: { _controller: "CiudadTigreBackendBundle:Administrador:update" }
+    requirements: { _method: post|put }
+
+administrador_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CiudadTigreBackendBundle:Administrador:delete" }
+    requirements: { _method: post|delete }

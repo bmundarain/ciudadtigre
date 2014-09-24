@@ -20,7 +20,7 @@
               <li><a href="{{ path('banner') }}">Banners</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><p class="navbar-text navbar-right">Logeado como <strong>{{ app.user }}</strong></p></li>
+                <li><p class="navbar-text navbar-right">Logeado como <strong><a href="{{ path('administrador') }}">{{ app.user }}</a></strong></p></li>
                 <li><a href="{{ path('backend_logout') }}">Salir</a></li>
             </ul>
           </div><!--/.nav-collapse -->
