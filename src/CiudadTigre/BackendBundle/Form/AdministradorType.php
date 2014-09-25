@@ -15,10 +15,16 @@ class AdministradorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre')
-            ->add('login')
-            ->add('password')
-            ->add('salt')
+            //->add('nombre')
+            //->add('login')
+            ->add('password', 'repeated', array(
+                'type' => 'password',
+                'invalid_message' => 'Las dos contraseñas deben coincidir',
+                'first_options'   => array('label' => 'Contraseña'),
+                'second_options'  => array('label' => 'Repite Contraseña'),
+                'required'        => false
+            ))
+            //->add('salt')
         ;
     }
     

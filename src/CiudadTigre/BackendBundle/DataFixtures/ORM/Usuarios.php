@@ -26,6 +26,7 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface,Contai
     public function load(ObjectManager $manager)
     {
         $usuario = new Administrador();
+        $usuario->setNombre('Administrador');
         $usuario->setLogin('admin');
         $usuario->setSalt(md5(time()));
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($usuario);

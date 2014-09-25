@@ -1,16 +1,45 @@
-{% extends '::base.html.twig' %}
+{% extends '::backend.html.twig' %}
 
 {% block body -%}
-    <h1>Administrador edit</h1>
 
-    {{ form(edit_form) }}
+{{ parent() }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('administrador') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+<div class="container">
+    <h1>Editar contraseña</h1>
+
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(edit_form) }}
+    <div>
+        {{ form_errors(edit_form) }}
+            
+        <div class="form-group">
+            {{ form_label(edit_form.password) }}
+            {{ form_errors(edit_form.password) }}
+            {{ form_widget(edit_form.password) }}
+        </div>
+        
+        {{ form_widget(edit_form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
+    </div>
+    
+    {{ form_end(edit_form) }}
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('administrador') }}">
+                Volver
+            </a>
+        </li>
+    </ul>
+</div>
 {% endblock %}

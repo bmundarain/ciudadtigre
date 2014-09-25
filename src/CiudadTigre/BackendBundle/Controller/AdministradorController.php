@@ -21,15 +21,15 @@ class AdministradorController extends Controller
      */
     public function indexAction()
     {
-        //return $this->redirect($this->generateUrl('administrador_show', array('id' => 1)));
+        return $this->redirect($this->generateUrl('administrador_show', array('id' => 1)));
         
-        $em = $this->getDoctrine()->getManager();
+        /*$em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('CiudadTigreAnuncianteBundle:Administrador')->findAll();
 
         return $this->render('CiudadTigreBackendBundle:Administrador:index.html.twig', array(
             'entities' => $entities,
-        ));
+        ));*/
     }
     /**
      * Creates a new Administrador entity.
@@ -149,7 +149,7 @@ class AdministradorController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Guardar'));
 
         return $form;
     }
@@ -172,7 +172,19 @@ class AdministradorController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            
+            $entity->setSalt(md5(time()));
+
+            $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
+            $passwordCodificado = $encoder->encodePassword(
+                $entity->getPassword(),
+                $entity->getSalt()
+            );
+            $entity->setPassword($passwordCodificado);
+
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('notice', 'Password actualizado!');
 
             return $this->redirect($this->generateUrl('administrador_edit', array('id' => $id)));
         }

@@ -1,44 +1,40 @@
-{% extends '::base.html.twig' %}
+{% extends '::backend.html.twig' %}
 
 {% block body -%}
-    <h1>Administrador</h1>
 
-    <table class="record_properties">
+{{ parent() }}
+
+<div class="container">
+    <h1>Administrador</h1>
+    
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <th width="20%">Nombre</th>
+                <td width="80%">{{ entity.nombre }}</td>
             </tr>
             <tr>
-                <th>Nombre</th>
-                <td>{{ entity.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Login</th>
-                <td>{{ entity.login }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ entity.password }}</td>
-            </tr>
-            <tr>
-                <th>Salt</th>
-                <td>{{ entity.salt }}</td>
+                <th width="20%">Login</th>
+                <td width="8    0%">{{ entity.login }}</td>
             </tr>
         </tbody>
     </table>
+    
+    <br>
+    
+    <a class="btn btn-primary" href="{{ path('administrador_edit', { 'id': entity.id }) }}">Cambiar contraseña</a>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('administrador') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('administrador_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+</div>
 {% endblock %}
