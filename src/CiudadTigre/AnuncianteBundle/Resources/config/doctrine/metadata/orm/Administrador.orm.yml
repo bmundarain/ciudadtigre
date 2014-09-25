@@ -1,6 +1,7 @@
 Administrador:
     type: entity
     table: administrador
+    repositoryClass: CiudadTigre\AnuncianteBundle\Entity\AdministradorRepository
     id:
         id:
             type: integer

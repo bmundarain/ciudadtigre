@@ -12,29 +12,27 @@ use CiudadTigre\BackendBundle\Form\SubcategoriaType;
  * Subcategoria controller.
  *
  */
-class SubcategoriaController extends Controller
-{
+class SubcategoriaController extends Controller {
 
     /**
      * Lists all Subcategoria entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->findAll();
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:index.html.twig', array(
-            'entities' => $entities,
+                    'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Subcategoria entity.
      *
      */
-    public function createAction(Request $request)
-    {
+    public function createAction(Request $request) {
         $entity = new Subcategoria();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -43,19 +41,17 @@ class SubcategoriaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            
+
             $this->get('session')->getFlashBag()->add('notice', 'Registro insertado!');
 
             return $this->redirect($this->generateUrl('subcategoria_show', array('id' => $entity->getId())));
-        }
-        else
-        {
+        } else {
             $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -66,8 +62,7 @@ class SubcategoriaController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Subcategoria $entity)
-    {
+    private function createCreateForm(Subcategoria $entity) {
         $form = $this->createForm(new SubcategoriaType(), $entity, array(
             'action' => $this->generateUrl('subcategoria_create'),
             'method' => 'POST',
@@ -82,14 +77,13 @@ class SubcategoriaController extends Controller
      * Displays a form to create a new Subcategoria entity.
      *
      */
-    public function newAction()
-    {
+    public function newAction() {
         $entity = new Subcategoria();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -97,8 +91,7 @@ class SubcategoriaController extends Controller
      * Finds and displays a Subcategoria entity.
      *
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->find($id);
@@ -110,8 +103,8 @@ class SubcategoriaController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -119,8 +112,7 @@ class SubcategoriaController extends Controller
      * Displays a form to edit an existing Subcategoria entity.
      *
      */
-    public function editAction($id)
-    {
+    public function editAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->find($id);
@@ -133,21 +125,20 @@ class SubcategoriaController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Subcategoria entity.
-    *
-    * @param Subcategoria $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Subcategoria $entity)
-    {
+     * Creates a form to edit a Subcategoria entity.
+     *
+     * @param Subcategoria $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createEditForm(Subcategoria $entity) {
         $form = $this->createForm(new SubcategoriaType(), $entity, array(
             'action' => $this->generateUrl('subcategoria_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -157,12 +148,12 @@ class SubcategoriaController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Subcategoria entity.
      *
      */
-    public function updateAction(Request $request, $id)
-    {
+    public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->find($id);
@@ -177,26 +168,26 @@ class SubcategoriaController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-            
+
             $this->get('session')->getFlashBag()->add('notice', 'Registro actualizado!');
 
             return $this->redirect($this->generateUrl('subcategoria_edit', array('id' => $id)));
         }
-        
+
         $this->get('session')->getFlashBag()->add('error', $editForm->getErrorsAsString());
 
         return $this->render('CiudadTigreBackendBundle:Subcategoria:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Subcategoria entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
+    public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -208,13 +199,18 @@ class SubcategoriaController extends Controller
                 throw $this->createNotFoundException('Unable to find Subcategoria entity.');
             }
 
-            $em->remove($entity);
-            $em->flush();
-            
+            try {
+                $em->remove($entity);
+                $em->flush();
+                
+            } catch (\Exception $e) {
+                $this->get('session')->getFlashBag()->add('error', 'Ocurrió un error. Es posible que esté intentando borrar una Subcategoria que posee Anunciantes asociados. Comuníquese con el Administrador del sistema.');
+                //$e->getMessage();
+                return $this->redirect($this->getRequest()->headers->get('referer'));
+            }
+
             $this->get('session')->getFlashBag()->add('notice', 'Registro borrado!');
-        }
-        else
-        {
+        } else {
             $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
@@ -228,13 +224,13 @@ class SubcategoriaController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
+    private function createDeleteForm($id) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('subcategoria_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Borrar'))
-            ->getForm()
+                        ->setAction($this->generateUrl('subcategoria_delete', array('id' => $id)))
+                        ->setMethod('DELETE')
+                        ->add('submit', 'submit', array('label' => 'Borrar'))
+                        ->getForm()
         ;
     }
+
 }

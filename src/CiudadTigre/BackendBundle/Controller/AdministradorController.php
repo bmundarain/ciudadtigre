@@ -21,7 +21,15 @@ class AdministradorController extends Controller
      */
     public function indexAction()
     {
-        return $this->redirect($this->generateUrl('administrador_show', array('id' => 1)));
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('CiudadTigreAnuncianteBundle:Administrador')->findAdministrador();
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Administrador entity.');
+        }
+        
+        return $this->redirect($this->generateUrl('administrador_show', array('id' => $entity->getId())));
         
         /*$em = $this->getDoctrine()->getManager();
 
@@ -103,11 +111,11 @@ class AdministradorController extends Controller
             throw $this->createNotFoundException('Unable to find Administrador entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        //$deleteForm = $this->createDeleteForm($id);
 
         return $this->render('CiudadTigreBackendBundle:Administrador:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            //'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -126,12 +134,12 @@ class AdministradorController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        //$deleteForm = $this->createDeleteForm($id);
 
         return $this->render('CiudadTigreBackendBundle:Administrador:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            //'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -167,7 +175,7 @@ class AdministradorController extends Controller
             throw $this->createNotFoundException('Unable to find Administrador entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        //$deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -192,7 +200,7 @@ class AdministradorController extends Controller
         return $this->render('CiudadTigreBackendBundle:Administrador:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            //'delete_form' => $deleteForm->createView(),
         ));
     }
     /**

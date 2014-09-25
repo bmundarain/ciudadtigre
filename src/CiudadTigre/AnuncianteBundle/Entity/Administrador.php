@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Administrador
  *
  * @ORM\Table(name="administrador")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CiudadTigre\AnuncianteBundle\Entity\AdministradorRepository")
  */
 class Administrador implements UserInterface
 {
