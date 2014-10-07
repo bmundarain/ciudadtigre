@@ -97,7 +97,7 @@ body
 {
 	clear:both;
 	float:right;
-	width:606px;
+	width:611px;
 	height:27px;
 	margin-top:73px;
 	background:#000;
@@ -321,8 +321,19 @@ body
 {
 	clear:none;
 	float:left;
-	width:47px;
-	height:45px;
+	height:46px;
+	width:46px;
+	overflow:hidden;
+	-moz-border-radius:23px;
+	-webkit-border-radius:23px;
+	border-radius:23px;
+	border:1px solid #000;
+	box-sizing:border-box;
+}
+.itemDir-imagen img
+{
+	height:46px;
+	width:auto;
 }
 .itemDir-txt
 {
