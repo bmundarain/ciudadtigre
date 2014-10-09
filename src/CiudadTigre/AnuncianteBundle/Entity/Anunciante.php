@@ -50,10 +50,30 @@ class Anunciante
     /**
      * @var string
      *
-     * @ORM\Column(name="direccion", type="text", nullable=false)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="direccion", type="text", nullable=true)
      */
     private $direccion;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="avenida", type="text", nullable=true)
+     */
+    private $avenida;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sector", type="text", nullable=true)
+     */
+    private $sector;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="text", nullable=true)
+     */
+    private $estado;
 
     /**
      * @var string
@@ -176,6 +196,13 @@ class Anunciante
      * @ORM\Column(name="promocionado", type="string", length=45, nullable=true)
      */
     private $promocionado;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="habilitado", type="boolean", nullable=true)
+     */
+    private $habilitado;
 
     /**
      * @var \Subcategoria
@@ -766,5 +793,97 @@ class Anunciante
         $nombreArchivoFoto = uniqid('ciudad-').'-foto3.jpg';
         $this->foto3->move($directorioDestino, $nombreArchivoFoto);
         $this->setRutaimg3($nombreArchivoFoto);
+    }
+
+    /**
+     * Set avenida
+     *
+     * @param string $avenida
+     * @return Anunciante
+     */
+    public function setAvenida($avenida)
+    {
+        $this->avenida = $avenida;
+
+        return $this;
+    }
+
+    /**
+     * Get avenida
+     *
+     * @return string 
+     */
+    public function getAvenida()
+    {
+        return $this->avenida;
+    }
+
+    /**
+     * Set sector
+     *
+     * @param string $sector
+     * @return Anunciante
+     */
+    public function setSector($sector)
+    {
+        $this->sector = $sector;
+
+        return $this;
+    }
+
+    /**
+     * Get sector
+     *
+     * @return string 
+     */
+    public function getSector()
+    {
+        return $this->sector;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param string $estado
+     * @return Anunciante
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return string 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set habilitado
+     *
+     * @param integer $habilitado
+     * @return Anunciante
+     */
+    public function setHabilitado($habilitado)
+    {
+        $this->habilitado = $habilitado;
+
+        return $this;
+    }
+
+    /**
+     * Get habilitado
+     *
+     * @return integer 
+     */
+    public function getHabilitado()
+    {
+        return $this->habilitado;
     }
 }

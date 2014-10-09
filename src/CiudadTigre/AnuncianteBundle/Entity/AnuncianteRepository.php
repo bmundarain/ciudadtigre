@@ -18,7 +18,8 @@ class AnuncianteRepository extends EntityRepository
         $consulta = $em->createQuery('
             SELECT a
               FROM CiudadTigreAnuncianteBundle:Anunciante a
-             WHERE a.nombre LIKE :nombre');
+             WHERE a.nombre LIKE :nombre
+               AND a.habilitado = TRUE');
         
         $consulta->setParameter('nombre', '%'.$nombre.'%');
         
@@ -52,6 +53,20 @@ class AnuncianteRepository extends EntityRepository
     public function findTodasLosAnunciantes()
     {
         return $this->queryTodasLosAnunciantes()->getResult();
+    }
+    
+    public function updateHits($id)
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('
+             UPDATE CiudadTigreAnuncianteBundle:Anunciante a
+                SET a.hits = a.hits + 1
+              WHERE a.id = :id');
+        
+        $consulta->setParameter('id', $id);
+        
+        return $consulta->execute();
     }
 
 }

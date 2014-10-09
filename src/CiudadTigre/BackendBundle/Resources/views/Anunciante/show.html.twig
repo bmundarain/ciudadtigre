@@ -33,9 +33,22 @@
                 <th>Descripcion</th>
                 <td>{{ entity.descripcion }}</td>
             </tr>
-            <tr>
+<!--            <tr>
                 <th>Direccion</th>
                 <td>{{ entity.direccion }}</td>
+            </tr>
+-->
+            <tr>
+                <th>Calle o Avenida</th>
+                <td>{{ entity.avenida }}</td>
+            </tr>
+            <tr>
+                <th>Sector</th>
+                <td>{{ entity.sector }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ entity.estado }}</td>
             </tr>
             <tr>
                 <th>Email</th>
@@ -94,9 +107,18 @@
                 <td>{{ entity.mapa }}</td>
             </tr>
             <tr>
+                <th>Habilitado</th>
+                {% if entity.habilitado == true %}
+                    <td>{{ 'Visible' }}</td>
+                {% else %}
+                    <td>{{ 'Oculto' }}</td>
+                {% endif%}
+            </tr>
+<!--            <tr>
                 <th>Promocionado</th>
                 <td>{{ entity.promocionado }}</td>
             </tr>
+-->
         </tbody>
     </table>
 

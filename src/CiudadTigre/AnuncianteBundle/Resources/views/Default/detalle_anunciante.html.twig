@@ -9,10 +9,19 @@
                 <div class="DetalleTit-tienda txt-rob">{{ anunciante.nombre }}</div>
                 <div class="DetalleTxt-tienda txt-rob">
                     <ul>
-                        <li>{{ anunciante.direccion }}</li>
+                        {% set avenida = anunciante.avenida %}
+                        {% if avenida is not empty %}
+                            <li>Calle o Avenida: {{ avenida }}</li>
+                        {% endif %}
+                        {% set sector = anunciante.sector %}
+                        {% if sector is not empty %}
+                            <li>Sector: {{ sector }}</li>
+                        {% endif %}
+                        {% set estado = anunciante.estado %}
+                        {% if estado is not empty %}
+                            <li>Estado: {{ estado }}</li>
+                        {% endif %}
                         <li>Teléfonos: {{ anunciante.telefono1 }} / {{ anunciante.telefono2 }}</li>
-                        <!--<li>Anzoátegui - Venezuela</li>
-                        <li>Ciudad del Tigre</li>-->
                         <li>R.I.F {{ anunciante.rif }}</li>
                         <li>Página Web: <a href="#">{{ anunciante.web }}</a></li>
                         <li>Facebook: {{ anunciante.facebook }}</li>

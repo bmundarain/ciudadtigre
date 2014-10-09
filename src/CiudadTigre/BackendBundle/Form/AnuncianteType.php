@@ -19,7 +19,10 @@ class AnuncianteType extends AbstractType
             ->add('nombre', 'text', array('attr' => array('class' => 'form-control')))
             ->add('rif', 'text', array('attr' => array('class' => 'form-control')))
             ->add('descripcion', 'textarea', array('attr' => array('class' => 'form-control')))
-            ->add('direccion', 'textarea', array('attr' => array('class' => 'form-control')))
+            //->add('direccion', 'textarea', array('attr' => array('class' => 'form-control')))
+            ->add('avenida', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
+            ->add('sector', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
+            ->add('estado', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
             ->add('email', 'email', array('attr' => array('class' => 'form-control')))
             ->add('telefono1', 'text', array('attr' => array('class' => 'form-control')))
             ->add('telefono2', 'text', array('required' => false, 'attr' => array('class' => 'form-control')))
@@ -37,6 +40,7 @@ class AnuncianteType extends AbstractType
 //            ->add('createdAt')
 //            ->add('updatedAt')
             ->add('mapa', 'textarea', array('attr' => array('class' => 'form-control')))
+            ->add('habilitado', 'checkbox', array('required' => false, 'label' => 'Habilitado?'))
 //            ->add('promocionado')
             ->add('subcategoria', 'entity', array(
                 'class'       => 'CiudadTigreAnuncianteBundle:Subcategoria',

@@ -36,7 +36,25 @@ Anunciante:
             comment: ''
         direccion:
             type: text
-            nullable: false
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        avenida:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        sector:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        estado:
+            type: text
+            nullable: true
             length: null
             fixed: false
             comment: ''
@@ -126,6 +144,11 @@ Anunciante:
             nullable: true
             length: 45
             fixed: false
+            comment: ''
+        habilitado:
+            type: boolean
+            nullable: true
+            unsigned: false
             comment: ''
     manyToOne:
         subcategoria:

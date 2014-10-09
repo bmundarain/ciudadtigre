@@ -62,7 +62,7 @@ class DefaultController extends Controller
     {
         $em = $this->get('doctrine.orm.entity_manager');
         
-        $anunciantes = $em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->findBySubcategoria($id);
+        $anunciantes = $em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->findBySubcategoriaAndHabilitado($id, 1);
         
         return $this->render(
                     'CiudadTigreAnuncianteBundle:Default:anunciantes.html.twig', array(
@@ -73,6 +73,8 @@ class DefaultController extends Controller
     public function detalleAnuncianteAction($id)
     {
         $em = $this->get('doctrine.orm.entity_manager');
+        
+        $em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->updateHits($id);
         
         $anunciante = $em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->findOneById($id);
         
