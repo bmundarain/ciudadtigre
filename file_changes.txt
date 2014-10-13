@@ -79,17 +79,17 @@ index.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/views/Defa
 Upload to server -> 23/09/2014 15:00:00
 
 Last changes until 09/10/2014 17:00:00
-Anunciante.orm.yml	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Anunciante.orm.yml	
-DefaultController.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Controller/DefaultController.php	
-show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/show.html.twig	
-detalle_anunciante.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/views/Default/detalle_anunciante.html.twig	
-AnuncianteRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/AnuncianteRepository.php	
-AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	
-Anunciante.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	
+Anunciante.orm.yml	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Anunciante.orm.yml	*
+DefaultController.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Controller/DefaultController.php	*
+show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/show.html.twig	*
+detalle_anunciante.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/views/Default/detalle_anunciante.html.twig	*
+AnuncianteRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/AnuncianteRepository.php	*
+AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	*
+Anunciante.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	*
 
 Last changes until 12/10/2014 21:00:00
-index.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/index.html.twig	
-AnuncianteRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/AnuncianteRepository.php	
-DefaultController.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Controller/DefaultController.php	
-AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	
-anunciante.yml	-/Modified	src/CiudadTigre/BackendBundle/Resources/config/routing/anunciante.yml	
+index.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/index.html.twig	*
+AnuncianteRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/AnuncianteRepository.php	*
+DefaultController.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Controller/DefaultController.php	*
+AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	*
+anunciante.yml	-/Modified	src/CiudadTigre/BackendBundle/Resources/config/routing/anunciante.yml	*
