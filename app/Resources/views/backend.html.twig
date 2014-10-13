@@ -1,5 +1,12 @@
 {% extends '::base.html.twig' %}
 
+{% block javascripts %} 
+{% javascripts '@CiudadTigreAnuncianteBundle/Resources/public/js/jquery-2.1.1.min.js'
+%}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+{% endblock %}
+
 {% block body %}
 
 <script type="text/javascript">
