@@ -29,7 +29,7 @@ anunciante_delete:
     defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:delete" }
     requirements: { _method: post|delete }
     
-anunciante_buscar:
+anunciante_filtrar:
     path:     /buscar
-    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:buscar" }
+    defaults: { _controller: "CiudadTigreBackendBundle:Anunciante:filtrar" }
     requirements: { _method: post }
