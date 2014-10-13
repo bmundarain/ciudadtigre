@@ -336,4 +336,23 @@ class AnuncianteController extends Controller
             ->getForm()
         ;
     }
+    
+    public function buscarAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $peticion = $this->getRequest();
+        
+        $paginador = $this->get('ideup.simple_paginator');
+        $paginador->setItemsPerPage(20);
+        $paginador->setMaxPagerItems(5);
+        
+        $entities = $paginador->paginate($em->getRepository('CiudadTigreAnuncianteBundle:Anunciante')->queryAnunciantesByNombre($peticion->get("nombre")))->getResult();
+        
+        return $this->render('CiudadTigreBackendBundle:Anunciante:index.html.twig', array(
+            'entities' => $entities,
+            'paginador' => $paginador
+        ));
+        
+    }
 }

@@ -22,72 +22,90 @@
     <br>
     
     <a href="{{ path('anunciante_new') }}" class="btn btn-primary">Nuevo Anunciante</a>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Rif</th>
-                <!--<th>Descripcion</th>
-                <th>Direccion</th>-->
-                <th>Email</th>
-                <th>Telefono1</th>
-                <!--<th>Telefono2</th>
-                <th>Web</th>
-                <th>Facebook</th>
-                <th>Twitter</th>
-                <th>Hits</th>
-                <th>Horario</th>
-                <th>Rutaimg1</th>
-                <th>Rutaimg2</th>
-                <th>Rutaimg3</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
-                <th>Mapa</th>
-                <th>Promocionado</th>-->
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('anunciante_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nombre }}</td>
-                <td>{{ entity.rif }}</td>
-                <!--<td>{{ entity.descripcion }}</td>
-                <td>{{ entity.direccion }}</td>-->
-                <td>{{ entity.email }}</td>
-                <td>{{ entity.telefono1 }}</td>
-                <!--<td>{{ entity.telefono2 }}</td>
-                <td>{{ entity.web }}</td>
-                <td>{{ entity.facebook }}</td>
-                <td>{{ entity.twitter }}</td>
-                <td>{{ entity.hits }}</td>
-                <td>{{ entity.horario }}</td>
-                <td>{{ entity.rutaimg1 }}</td>
-                <td>{{ entity.rutaimg2 }}</td>
-                <td>{{ entity.rutaimg3 }}</td>
-                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.mapa }}</td>
-                <td>{{ entity.promocionado }}</td>-->
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('anunciante_show', { 'id': entity.id }) }}">Mostrar</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('anunciante_edit', { 'id': entity.id }) }}">Editar</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
     
-    <div align="center">
+    <div class="row-fluid">
+        <div class="col-lg-9">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Rif</th>
+                        <!--<th>Descripcion</th>
+                        <th>Direccion</th>-->
+                        <th>Email</th>
+                        <th>Telefono1</th>
+                        <!--<th>Telefono2</th>
+                        <th>Web</th>
+                        <th>Facebook</th>
+                        <th>Twitter</th>
+                        <th>Hits</th>
+                        <th>Horario</th>
+                        <th>Rutaimg1</th>
+                        <th>Rutaimg2</th>
+                        <th>Rutaimg3</th>
+                        <th>Createdat</th>
+                        <th>Updatedat</th>
+                        <th>Mapa</th>
+                        <th>Promocionado</th>-->
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('anunciante_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                        <td>{{ entity.nombre }}</td>
+                        <td>{{ entity.rif }}</td>
+                        <!--<td>{{ entity.descripcion }}</td>
+                        <td>{{ entity.direccion }}</td>-->
+                        <td>{{ entity.email }}</td>
+                        <td>{{ entity.telefono1 }}</td>
+                        <!--<td>{{ entity.telefono2 }}</td>
+                        <td>{{ entity.web }}</td>
+                        <td>{{ entity.facebook }}</td>
+                        <td>{{ entity.twitter }}</td>
+                        <td>{{ entity.hits }}</td>
+                        <td>{{ entity.horario }}</td>
+                        <td>{{ entity.rutaimg1 }}</td>
+                        <td>{{ entity.rutaimg2 }}</td>
+                        <td>{{ entity.rutaimg3 }}</td>
+                        <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{{ entity.mapa }}</td>
+                        <td>{{ entity.promocionado }}</td>-->
+                        <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('anunciante_show', { 'id': entity.id }) }}">Mostrar</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('anunciante_edit', { 'id': entity.id }) }}">Editar</a>
+                            </li>
+                        </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-3 well">
+            <p><strong>Filtro</strong><span class="caret"></span></p>
+            <form role="form" action="{{ path('anunciante_buscar') }}" method="post">
+                <div class="form-group">
+                  <label for="nombre">Nombre Anunciante</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                
+                <a href="{{ path('anunciante') }}">Reestablecer</a>
+                <br><br>
+
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="row" align="center">
     <table width="400" border=0>
         <tr align="center">
         {% if paginador.currentPage > 1 %}

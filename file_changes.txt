@@ -86,3 +86,10 @@ detalle_anunciante.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resourc
 AnuncianteRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/AnuncianteRepository.php	
 AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	
 Anunciante.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	
+
+Last changes until 12/10/2014 21:00:00
+index.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/index.html.twig	
+AnuncianteRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/AnuncianteRepository.php	
+DefaultController.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Controller/DefaultController.php	
+AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	
+anunciante.yml	-/Modified	src/CiudadTigre/BackendBundle/Resources/config/routing/anunciante.yml	

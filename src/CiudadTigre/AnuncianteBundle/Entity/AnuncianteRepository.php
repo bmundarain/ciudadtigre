@@ -11,6 +11,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class AnuncianteRepository extends EntityRepository
 {
+    public function queryAnunciantesByNombre($nombre)
+    {
+        $em = $this->getEntityManager();
+        $consulta = $em->createQuery('
+                SELECT a
+                  FROM CiudadTigreAnuncianteBundle:Anunciante a
+                 WHERE a.nombre LIKE :nombre');
+        
+        $consulta->setParameter('nombre', '%'.$nombre.'%');
+        
+        return $consulta;
+    }
+    
     public function getAnunciantesByNombre($nombre)
     {
         $em = $this->getEntityManager();
@@ -53,6 +66,21 @@ class AnuncianteRepository extends EntityRepository
     public function findTodasLosAnunciantes()
     {
         return $this->queryTodasLosAnunciantes()->getResult();
+    }
+    
+    public function findAnunciantesSubcategoria($subcategoria_id)
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('
+            SELECT a
+              FROM CiudadTigreAnuncianteBundle:Anunciante a
+             WHERE a.subcategoria = :id
+               AND a.habilitado = 1');
+        
+        $consulta->setParameter('id', $subcategoria_id);
+        
+        return $consulta->getResult();
     }
     
     public function updateHits($id)
