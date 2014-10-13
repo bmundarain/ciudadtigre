@@ -352,7 +352,10 @@ body
 	float:left;
 	font-size:20px;
 	width:192px;
-	height:31px;
+	//height:31px;
+        height: auto;
+        word-wrap: break-word;
+        vertical-align:middle;
 }
 .itemDir-nombre a
 {
@@ -468,7 +471,7 @@ body
 {
 	width:100%;
 	display:block;
-	border-top:1 px solid #a0a0a0;ck;
+	border-top:1 px solid #a0a0a0;
 	border-bottom:1 px solid #a0a0a0;
 	background-color:#666;
 	font-size:20px;

@@ -337,7 +337,7 @@ class AnuncianteController extends Controller
         ;
     }
     
-    public function buscarAction()
+    public function filtrarAction()
     {
         $em = $this->getDoctrine()->getManager();
         
