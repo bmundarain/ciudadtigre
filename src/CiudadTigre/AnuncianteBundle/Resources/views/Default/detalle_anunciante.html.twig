@@ -9,25 +9,40 @@
                 <div class="DetalleTit-tienda txt-rob">{{ anunciante.nombre }}</div>
                 <div class="DetalleTxt-tienda txt-rob">
                     <ul>
-                        {% set avenida = anunciante.avenida %}
-                        {% if avenida is not empty %}
-                            <li>Calle o Avenida: {{ avenida }}</li>
-                        {% endif %}
-                        {% set sector = anunciante.sector %}
-                        {% if sector is not empty %}
-                            <li>Sector: {{ sector }}</li>
-                        {% endif %}
-                        {% set estado = anunciante.estado %}
-                        {% if estado is not empty %}
-                            <li>Estado: {{ estado }}</li>
-                        {% endif %}
+                        <ul>
+                        <li>Calle o Avenida: {{ anunciante.avenida }}</li>
+                        <li>Edif/Local: {{ anunciante.local }}</li>
+                        <li>Sector: {{ anunciante.sector }}</li>
+                        <li>Estado: {{ anunciante.estado }}</li>                        
                         <li>Teléfonos: {{ anunciante.telefono1 }} / {{ anunciante.telefono2 }}</li>
                         <li>R.I.F {{ anunciante.rif }}</li>
-                        <li>Página Web: <a href="#">{{ anunciante.web }}</a></li>
-                        <li>Facebook: {{ anunciante.facebook }}</li>
-                        <li>Twitter: {{ anunciante.twitter }}</li>
-                        <li>Horario: {{ anunciante.horario }}</li>
-                        <li>Hits: {{ anunciante.hits }}</li>
+                        
+                        {% set web = anunciante.web %}
+                        {% if web is not empty %}
+                            <li>Página Web: <a href="{{ anunciante.web }}">{{ anunciante.web }}</a></li>
+                        {% endif %}
+                        
+                        {% set web = anunciante.web %}
+                        {% if web is not empty %}
+                            <li>Página Web: <a href="{{ anunciante.web }}">{{ anunciante.web }}</a></li>
+                        {% endif %}
+                            
+                        {% set face = anunciante.facebook %}
+                        {% if face is not empty %}
+                            <li>Facebook: {{ anunciante.facebook }}</li>
+                        {% endif %}
+
+                        {% set tw = anunciante.twitter %}
+                        {% if tw is not empty %}
+                            <li>Twitter: {{ anunciante.twitter }}</li>
+                        {% endif %}
+                        
+                        {% set horario = anunciante.horario %}
+                        {% if horario is not empty %}
+                            <li>Horario: {{ anunciante.horario }}</li>
+                        {% endif %}
+                            
+                        <li>Descripción: {{ anunciante.descripcion }}</li>
                     </ul>
                 </div>
             </div>

@@ -16,7 +16,7 @@
                 <li>
                     <a href="{{ path('anunciante_detalle', { 'id': anunciante.id } ) }}">{{ anunciante.nombre }}</a>
                     <br/>
-                    <span class="listado-direccion">{{ anunciante.direccion }}</span>
+                    <span class="listado-direccion">{{ anunciante.avenida ~ ', ' ~ anunciante.local ~ ', ' ~ anunciante.sector ~ ', ' ~ anunciante.estado  }}</span>
                 </li>
             {% endfor %}
 
