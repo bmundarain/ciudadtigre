@@ -352,10 +352,10 @@ body
 	float:left;
 	font-size:20px;
 	width:192px;
-	//height:31px;
-        height: auto;
+	height:31px;
+        /*height: auto;
         word-wrap: break-word;
-        vertical-align:middle;
+        vertical-align:middle;*/
 }
 .itemDir-nombre a
 {
