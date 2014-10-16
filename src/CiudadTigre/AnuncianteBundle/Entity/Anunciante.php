@@ -57,28 +57,35 @@ class Anunciante
     /**
      * @var string
      *
-     * @ORM\Column(name="avenida", type="text", nullable=true)
+     * @ORM\Column(name="avenida", type="string", length=100, nullable=false)
      */
     private $avenida;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="sector", type="text", nullable=true)
+     * @ORM\Column(name="local", type="string", length=100, nullable=false)
+     */
+    private $local;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sector", type="string", length=100, nullable=false)
      */
     private $sector;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="estado", type="text", nullable=true)
+     * @ORM\Column(name="estado", type="string", length=100, nullable=false)
      */
     private $estado;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100, nullable=false)
+     * @ORM\Column(name="email", type="string", length=100, nullable=true)
      * @Assert\Email(checkMX=true, message = "Ingresa un email válido")
      */
     private $email;
@@ -816,6 +823,29 @@ class Anunciante
     public function getAvenida()
     {
         return $this->avenida;
+    }
+    
+    /**
+     * Set local
+     *
+     * @param string $local
+     * @return Anunciante
+     */
+    public function setLocal($local)
+    {
+        $this->local = $local;
+
+        return $this;
+    }
+
+    /**
+     * Get local
+     *
+     * @return string 
+     */
+    public function getLocal()
+    {
+        return $this->local;
     }
 
     /**
