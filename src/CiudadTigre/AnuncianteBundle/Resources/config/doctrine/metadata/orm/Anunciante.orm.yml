@@ -41,26 +41,32 @@ Anunciante:
             fixed: false
             comment: ''
         avenida:
-            type: text
-            nullable: true
-            length: null
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        local:
+            type: string
+            nullable: false
+            length: 100
             fixed: false
             comment: ''
         sector:
-            type: text
-            nullable: true
-            length: null
+            type: string
+            nullable: false
+            length: 100
             fixed: false
             comment: ''
         estado:
-            type: text
-            nullable: true
-            length: null
+            type: string
+            nullable: false
+            length: 100
             fixed: false
             comment: ''
         email:
             type: string
-            nullable: false
+            nullable: true
             length: 100
             fixed: false
             comment: ''
