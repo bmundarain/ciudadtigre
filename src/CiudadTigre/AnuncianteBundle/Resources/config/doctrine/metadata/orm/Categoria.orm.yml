@@ -15,7 +15,7 @@ Categoria:
         nombre:
             type: string
             nullable: false
-            length: 24
+            length: 22
             fixed: false
             comment: ''
         rutafoto:
