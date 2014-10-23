@@ -234,11 +234,18 @@ class CategoriaController extends Controller
                 throw $this->createNotFoundException('Unable to find Categoria entity.');
             }
             
-            $directorioFotos = $this->container->getParameter('directorio.imagenes.directorio');
-
-            $em->remove($entity);
-            $em->flush();
+            $directorioFotos = $this->container->getParameter('directorio.imagenes.categoria');
             
+            try {
+                $em->remove($entity);
+                $em->flush();
+                
+            } catch (\Exception $e) {
+                $this->get('session')->getFlashBag()->add('error', 'Ocurrió un error. Es posible que esté intentando borrar una Categoria que posee Subcategorias asociadas. Comuníquese con el Administrador del sistema.');
+                //$e->getMessage();
+                return $this->redirect($this->getRequest()->headers->get('referer'));
+            }
+
             $this->get('session')->getFlashBag()->add('notice', 'Registro borrado!');
             
             // Borrar la foto
@@ -248,9 +255,8 @@ class CategoriaController extends Controller
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando la imagen en ".$e->getPath();
             }
-        }
-        else
-        {
+            
+        } else {
             $this->get('session')->getFlashBag()->add('error', $form->getErrorsAsString());
         }
 
