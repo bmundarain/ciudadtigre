@@ -17,6 +17,12 @@ Banner:
             length: 255
             fixed: false
             comment: ''
+        link:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
         createdAt:
             type: datetime
             nullable: false

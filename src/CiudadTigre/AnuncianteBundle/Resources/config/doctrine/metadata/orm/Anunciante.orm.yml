@@ -58,6 +58,12 @@ Anunciante:
             length: 100
             fixed: false
             comment: ''
+        ciudad:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
         estado:
             type: string
             nullable: false
@@ -142,7 +148,7 @@ Anunciante:
         mapa:
             type: string
             nullable: true
-            length: 45
+            length: 255
             fixed: false
             comment: ''
         promocionado:
