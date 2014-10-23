@@ -9,13 +9,17 @@
                 <div class="DetalleTit-tienda txt-rob">{{ anunciante.nombre }}</div>
                 <div class="DetalleTxt-tienda txt-rob">
                     <ul>
-                        <ul>
+                        <li>R.I.F {{ anunciante.rif }}</li>
                         <li>Calle o Avenida: {{ anunciante.avenida }}</li>
                         <li>Edif/Local: {{ anunciante.local }}</li>
                         <li>Sector: {{ anunciante.sector }}</li>
-                        <li>Estado: {{ anunciante.estado }}</li>                        
-                        <li>Teléfonos: {{ anunciante.telefono1 }} / {{ anunciante.telefono2 }}</li>
-                        <li>R.I.F {{ anunciante.rif }}</li>
+                        <li>Estado: {{ anunciante.estado }}</li>
+                        <li>Email: {{ anunciante.email }}</li>
+                        
+                        {% set telefono = anunciante.telefono1 %}
+                        {% if telefono is not empty %}
+                            <li>Teléfonos: {{ anunciante.telefono1 }} / {{ anunciante.telefono2 }}</li>
+                        {% endif %}
                         
                         {% set web = anunciante.web %}
                         {% if web is not empty %}
@@ -53,8 +57,6 @@
                 <iframe class="DetalleTienda-iframe" src="{{ anunciante.mapa }}"></iframe>
             </div>
 
-
-            <div class="txt-piepagina">Para publicar, cont&aacute;ctanos al 0424.830.82.01 &frasl; 0283.515.31.58 o escribe a <a href="mailto:ciudaddeltigre@gmail.com">ciudaddeltigre@gmail.com</a><br /><br />&quot;D&eacute;jate ver, p&uacute;blica con nosotros&quot;
             </div>
         </div>
     </div>

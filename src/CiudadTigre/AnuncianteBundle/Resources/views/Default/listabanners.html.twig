@@ -1,3 +1,10 @@
 {% for banner in banners %}
-    <li><img src="{{ asset('uploads/images/banners/' ~ banner.ruta) }}" /></li>
+    {% set link = banner.link %}
+    {% if link is not empty %}
+        {% set link = 'http://' ~ banner.link %}
+    {% else %}
+        {% set link = '#' %}
+    {% endif %}
+                            
+    <li><a href="{{ link }}"><img src="{{ asset('uploads/images/banners/' ~ banner.ruta) }}" /></a></li>
 {% endfor %}
