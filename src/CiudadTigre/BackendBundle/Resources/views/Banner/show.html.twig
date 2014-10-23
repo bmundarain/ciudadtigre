@@ -26,6 +26,10 @@
                 <td width="80%"><img src="{{ asset('/uploads/images/banners/' ~ entity.ruta) }}"></td>
             </tr>
             <tr>
+                <th width="20%">Link:</th>
+                <td width="80%">{{ entity.link }}</td>
+            </tr>
+            <tr>
                 <th width="20%">Createdat</th>
                 <td width="80%">{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
             </tr>

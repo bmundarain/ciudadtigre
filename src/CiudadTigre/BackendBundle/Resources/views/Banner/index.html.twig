@@ -28,6 +28,7 @@
             <tr>
                 <th>Id</th>
                 <th>Ruta</th>
+                <th>Link</th>
                 <th>Fecha Creación</th>
                 <th>Actions</th>
             </tr>
@@ -37,6 +38,7 @@
             <tr>
                 <td><a href="{{ path('banner_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.ruta }}</td>
+                <td>{{ entity.link }}</td>
                 <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
