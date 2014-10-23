@@ -16,9 +16,7 @@ class BannerType extends AbstractType
     {
         $builder
             ->add('foto', 'file', array('required' => true))
-//            ->add('ruta')
-//            ->add('createdAt')
-//            ->add('updatedAt')
+            ->add('link')
         ;
     }
     
