@@ -200,7 +200,7 @@ class Anunciante
     /**
      * @var string
      *
-     * @ORM\Column(name="mapa", type="string", length=255, nullable=true)
+     * @ORM\Column(name="mapa", type="string", length=500, nullable=true)
      */
     private $mapa;
 
