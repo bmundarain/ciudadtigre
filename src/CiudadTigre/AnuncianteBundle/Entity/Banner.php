@@ -30,6 +30,13 @@ class Banner
      * @ORM\Column(name="ruta", type="string", length=255, nullable=false)
      */
     private $ruta;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=100, nullable=true)
+     */
+    private $link;
 
     /**
      * @var \DateTime
@@ -88,6 +95,29 @@ class Banner
     public function getRuta()
     {
         return $this->ruta;
+    }
+    
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return Banner
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string 
+     */
+    public function getLink()
+    {
+        return $this->link;
     }
     
     /**

@@ -78,6 +78,13 @@ class Anunciante
     /**
      * @var string
      *
+     * @ORM\Column(name="ciudad", type="string", length=100, nullable=false)
+     */
+    private $ciudad;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="estado", type="string", length=100, nullable=false)
      */
     private $estado;
@@ -193,7 +200,7 @@ class Anunciante
     /**
      * @var string
      *
-     * @ORM\Column(name="mapa", type="string", length=500, nullable=true)
+     * @ORM\Column(name="mapa", type="string", length=255, nullable=true)
      */
     private $mapa;
 
@@ -869,6 +876,29 @@ class Anunciante
     public function getSector()
     {
         return $this->sector;
+    }
+    
+    /**
+     * Set ciudad
+     *
+     * @param string $ciudad
+     * @return Anunciante
+     */
+    public function setCiudad($ciudad)
+    {
+        $this->ciudad = $ciudad;
+
+        return $this;
+    }
+
+    /**
+     * Get ciudad
+     *
+     * @return string 
+     */
+    public function getCiudad()
+    {
+        return $this->ciudad;
     }
 
     /**
