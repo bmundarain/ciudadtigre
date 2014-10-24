@@ -78,7 +78,7 @@ Anunciante:
             comment: ''
         telefono1:
             type: string
-            nullable: false
+            nullable: true
             length: 45
             fixed: false
             comment: ''

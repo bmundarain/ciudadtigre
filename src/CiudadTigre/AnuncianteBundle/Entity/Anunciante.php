@@ -100,7 +100,7 @@ class Anunciante
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono1", type="string", length=45, nullable=false)
+     * @ORM\Column(name="telefono1", type="string", length=45, nullable=true)
      */
     private $telefono1;
 
