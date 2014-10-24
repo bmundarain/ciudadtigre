@@ -12,6 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoriaRepository extends EntityRepository
 {
+    /*public function findAll()
+    {
+        return $this->findBy(array(), array('nombre' => 'ASC'));
+    }*/
+    
     public function findCategorias()
     {
         $em = $this->getEntityManager();
