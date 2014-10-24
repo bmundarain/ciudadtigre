@@ -95,7 +95,7 @@ AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/Anu
 anunciante.yml	-/Modified	src/CiudadTigre/BackendBundle/Resources/config/routing/anunciante.yml	*
 
 Last changes until 23/10/2014 21:00:00
-base.html.twig	-/Modified	app/Resources/views/base.html.twig	
-Anunciante.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	
-Anunciante.orm.yml	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Anunciante.orm.yml	
-AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	
+base.html.twig	-/Modified	app/Resources/views/base.html.twig	*
+Anunciante.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	*
+Anunciante.orm.yml	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Anunciante.orm.yml	*
+AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	*
