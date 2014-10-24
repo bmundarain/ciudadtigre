@@ -104,3 +104,6 @@ Last changes until 24/10/2014 21:00:00
 BannerRepository.php	Added/Modified	src/CiudadTigre/AnuncianteBundle/Entity/BannerRepository.php	
 Banner.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Banner.php	
 CategoriaRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/CategoriaRepository.php	
+
+index.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/views/Default/index.html.twig	
+CategoriaRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/CategoriaRepository.php	
