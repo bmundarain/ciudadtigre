@@ -251,7 +251,7 @@ class CategoriaController extends Controller
             // Borrar la foto
             $fs = new Filesystem();
             try {
-                $fs->remove($directorioFotos.$entity->getRuta());
+                $fs->remove($directorioFotos.$entity->getRutafoto());
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando la imagen en ".$e->getPath();
             }
