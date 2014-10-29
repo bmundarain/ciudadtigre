@@ -62,6 +62,8 @@ class AnuncianteController extends Controller
             $entity->subirFoto1($directorioFotos);
             $entity->subirFoto2($directorioFotos);
             $entity->subirFoto3($directorioFotos);
+            $entity->subirFoto4($directorioFotos);
+            $entity->subirFoto5($directorioFotos);
             
             $em->persist($entity);
             $em->flush();
@@ -199,6 +201,8 @@ class AnuncianteController extends Controller
         $rutaFotoOriginal1 = $editForm->getData()->getRutaimg1();
         $rutaFotoOriginal2 = $editForm->getData()->getRutaimg2();
         $rutaFotoOriginal3 = $editForm->getData()->getRutaimg3();
+        $rutaFotoOriginal4 = $editForm->getData()->getRutaimg4();
+        $rutaFotoOriginal5 = $editForm->getData()->getRutaimg5();
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
@@ -263,6 +267,46 @@ class AnuncianteController extends Controller
                 }
             }
             
+            if (null == $entity->getFoto4()) {
+                // La foto original no se modifica, recuperar su ruta
+                $entity->setRutaimg4($rutaFotoOriginal4);
+            } else {
+                // La foto de la oferta se ha modificado
+                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
+                
+                $entity->subirFoto4($directorioFotos);
+                // Borrar la foto anterior
+                if (!empty($rutaFotoOriginal4)) {
+                    $fs = new Filesystem();
+                    
+                    try {
+                        $fs->remove($directorioFotos.$rutaFotoOriginal4);
+                    } catch (IOExceptionInterface $e) {
+                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                    }
+                }
+            }
+            
+            if (null == $entity->getFoto5()) {
+                // La foto original no se modifica, recuperar su ruta
+                $entity->setRutaimg5($rutaFotoOriginal5);
+            } else {
+                // La foto de la oferta se ha modificado
+                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
+                
+                $entity->subirFoto5($directorioFotos);
+                // Borrar la foto anterior
+                if (!empty($rutaFotoOriginal5)) {
+                    $fs = new Filesystem();
+                    
+                    try {
+                        $fs->remove($directorioFotos.$rutaFotoOriginal5);
+                    } catch (IOExceptionInterface $e) {
+                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                    }
+                }
+            }
+            
             $em->flush();
             
             $this->get('session')->getFlashBag()->add('notice', 'Registro actualizado!');
@@ -308,6 +352,8 @@ class AnuncianteController extends Controller
                 $fs->remove($directorioFotos.$entity->getRutaimg1());
                 $fs->remove($directorioFotos.$entity->getRutaimg2());
                 $fs->remove($directorioFotos.$entity->getRutaimg3());
+                $fs->remove($directorioFotos.$entity->getRutaimg4());
+                $fs->remove($directorioFotos.$entity->getRutaimg5());
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando laa imágenes en ".$e->getPath();
             }

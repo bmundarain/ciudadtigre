@@ -107,3 +107,10 @@ CategoriaRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/Categ
 
 index.html.twig	-/Modified	src/CiudadTigre/AnuncianteBundle/Resources/views/Default/index.html.twig	
 CategoriaRepository.php	-/Modified	src/CiudadTigre/AnuncianteBundle/Entity/CategoriaRepository.php	
+
+Anunciante.orm.yml	Modified/-	src/CiudadTigre/AnuncianteBundle/Resources/config/doctrine/metadata/orm/Anunciante.orm.yml	
+show.html.twig	Modified/-	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/show.html.twig	
+detalle_anunciante.html.twig	Modified/-	src/CiudadTigre/AnuncianteBundle/Resources/views/Default/detalle_anunciante.html.twig	
+AnuncianteType.php	Modified/-	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	
+AnuncianteController.php	Modified/-	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	
+Anunciante.php	Modified/-	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	

@@ -135,6 +135,18 @@ Anunciante:
             length: 255
             fixed: false
             comment: ''
+        rutaimg4:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        rutaimg5:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
         createdAt:
             type: datetime
             nullable: false

@@ -161,6 +161,16 @@ class Anunciante
     * @Assert\Image(maxSize = "500k")
     */
     protected $foto3;
+    
+    /**
+    * @Assert\Image(maxSize = "500k")
+    */
+    protected $foto4;
+    
+    /**
+    * @Assert\Image(maxSize = "500k")
+    */
+    protected $foto5;
 
     /**
      * @var string
@@ -183,6 +193,20 @@ class Anunciante
      */
     private $rutaimg3;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rutaimg4", type="string", length=255, nullable=true)
+     */
+    private $rutaimg4;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rutaimg5", type="string", length=255, nullable=true)
+     */
+    private $rutaimg5;
+    
     /**
      * @var \DateTime
      *
@@ -285,6 +309,38 @@ class Anunciante
     public function getFoto3()
     {
         return $this->foto3;
+    }
+    
+    /**
+    * @param UploadedFile $foto
+    */
+    public function setFoto4(UploadedFile $foto = null)
+    {
+        $this->foto4 = $foto;
+    }
+    
+    /**
+    * @return UploadedFile
+    */
+    public function getFoto4()
+    {
+        return $this->foto4;
+    }
+    
+    /**
+    * @param UploadedFile $foto
+    */
+    public function setFoto5(UploadedFile $foto = null)
+    {
+        $this->foto5 = $foto;
+    }
+    
+    /**
+    * @return UploadedFile
+    */
+    public function getFoto5()
+    {
+        return $this->foto5;
     }
 
     /**

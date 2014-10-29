@@ -36,6 +36,8 @@ class AnuncianteType extends AbstractType
             ->add('foto1', 'file', array('required' => false))
             ->add('foto2', 'file', array('required' => false))
             ->add('foto3', 'file', array('required' => false))
+            ->add('foto4', 'file', array('required' => false))
+            ->add('foto5', 'file', array('required' => false))
 //            ->add('rutaimg1')
 //            ->add('rutaimg2')
 //            ->add('rutaimg3')
