@@ -44,7 +44,7 @@ class AnuncianteType extends AbstractType
 //            ->add('createdAt')
 //            ->add('updatedAt')
             ->add('mapa', 'textarea', array('attr' => array('class' => 'form-control'), 'required' => false))
-            ->add('habilitado', 'checkbox', array('required' => false, 'label' => 'Habilitado?'))
+            ->add('habilitado', 'checkbox', array('required' => false, 'label' => 'Habilitado?', 'data' => true ))
 //            ->add('promocionado')
             ->add('subcategoria', 'entity', array(
                 'class'       => 'CiudadTigreAnuncianteBundle:Subcategoria',
