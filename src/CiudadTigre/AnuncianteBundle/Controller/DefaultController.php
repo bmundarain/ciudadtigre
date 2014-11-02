@@ -50,7 +50,7 @@ class DefaultController extends Controller
     {
         $em = $this->get('doctrine.orm.entity_manager');
         
-        $subcategorias = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->findByCategoria($id);
+        $subcategorias = $em->getRepository('CiudadTigreAnuncianteBundle:Subcategoria')->getByCategoriasOrderBy($id);
         
         return $this->render(
                     'CiudadTigreAnuncianteBundle:Default:subcategoria.html.twig', array(

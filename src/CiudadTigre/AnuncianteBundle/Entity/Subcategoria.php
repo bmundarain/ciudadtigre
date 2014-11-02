@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Subcategoria
  *
  * @ORM\Table(name="subcategoria", indexes={@ORM\Index(name="fk_subcategoria_categoria_idx", columns={"categoria_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CiudadTigre\AnuncianteBundle\Entity\SubcategoriaRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Subcategoria

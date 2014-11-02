@@ -14,7 +14,11 @@
                         <li>Edif/Local: {{ anunciante.local }}</li>
                         <li>Sector: {{ anunciante.sector }}</li>
                         <li>Estado: {{ anunciante.estado }}</li>
-                        <li>Email: {{ anunciante.email }}</li>
+                        
+                        {% set email = anunciante.email %}
+                        {% if email is not empty %}
+                            <li>Email: {{ anunciante.email }}</li>
+                        {% endif %}
                         
                         {% set telefono = anunciante.telefono1 %}
                         {% if telefono is not empty %}
