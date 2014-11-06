@@ -1,7 +1,7 @@
 {% for banner in banners %}
     {% set link = banner.link %}
     {% if link is not empty %}
-        {% set link = 'http://' ~ banner.link %}
+        {% set link = banner.link %}
     {% else %}
         {% set link = '#' %}
     {% endif %}
