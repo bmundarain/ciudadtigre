@@ -697,6 +697,52 @@ class Anunciante
     {
         return $this->rutaimg3;
     }
+    
+    /**
+     * Set rutaimg4
+     *
+     * @param string $rutaimg4
+     * @return Anunciante
+     */
+    public function setRutaimg4($rutaimg4)
+    {
+        $this->rutaimg4 = $rutaimg4;
+
+        return $this;
+    }
+
+    /**
+     * Get rutaimg4
+     *
+     * @return string 
+     */
+    public function getRutaimg4()
+    {
+        return $this->rutaimg4;
+    }
+    
+    /**
+     * Set rutaimg5
+     *
+     * @param string $rutaimg5
+     * @return Anunciante
+     */
+    public function setRutaimg5($rutaimg5)
+    {
+        $this->rutaimg5 = $rutaimg5;
+
+        return $this;
+    }
+
+    /**
+     * Get rutaimg5
+     *
+     * @return string 
+     */
+    public function getRutaimg5()
+    {
+        return $this->rutaimg5;
+    }
 
     /**
      * Get createdAt
@@ -863,6 +909,30 @@ class Anunciante
         $nombreArchivoFoto = uniqid('ciudad-').'-foto3.jpg';
         $this->foto3->move($directorioDestino, $nombreArchivoFoto);
         $this->setRutaimg3($nombreArchivoFoto);
+    }
+    
+    public function subirFoto4()
+    {
+        if (null === $this->foto4) {
+            return;
+        }
+        
+        $directorioDestino = __DIR__.'/../../../../web/uploads/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('ciudad-').'-foto4.jpg';
+        $this->foto4->move($directorioDestino, $nombreArchivoFoto);
+        $this->setRutaimg4($nombreArchivoFoto);
+    }
+    
+    public function subirFoto5()
+    {
+        if (null === $this->foto5) {
+            return;
+        }
+        
+        $directorioDestino = __DIR__.'/../../../../web/uploads/images/img-tiendas';
+        $nombreArchivoFoto = uniqid('ciudad-').'-foto5.jpg';
+        $this->foto5->move($directorioDestino, $nombreArchivoFoto);
+        $this->setRutaimg5($nombreArchivoFoto);
     }
 
     /**
