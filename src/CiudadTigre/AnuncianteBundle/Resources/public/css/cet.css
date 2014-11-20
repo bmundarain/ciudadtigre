@@ -151,6 +151,8 @@ body
 	font-size:25px;
 	color:#fff;
 	display:block;
+        position:relative;
+	z-index:10000;
 }
 .titulo-ruta
 {
@@ -208,6 +210,8 @@ body
 	background:#fff;
 	width:333px;
 	height:22px;
+        position:relative;
+	z-index:10000;
 }
 .buscador input[type=search]
 {
