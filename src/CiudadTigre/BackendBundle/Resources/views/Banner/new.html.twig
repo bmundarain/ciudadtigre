@@ -29,6 +29,13 @@
             {{ form_widget(form.foto) }}
             <p class="help-block"><strong>Medidas: </strong> 900x160 píxeles. <strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
         </div>
+            
+        <div class="form-group">
+            {{ form_label(form.link, 'Link:') }}
+            {{ form_errors(form.link) }}
+            {{ form_widget(form.link) }}
+            <p class="help-block"><strong>Ejemplo: </strong> http://www.google.co.ve</p>
+        </div>
         
         {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
     </div>
