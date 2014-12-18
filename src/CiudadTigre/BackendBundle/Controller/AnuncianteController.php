@@ -349,11 +349,26 @@ class AnuncianteController extends Controller
             // Borrar la foto
             $fs = new Filesystem();
             try {
-                $fs->remove($directorioFotos.$entity->getRutaimg1());
-                $fs->remove($directorioFotos.$entity->getRutaimg2());
-                $fs->remove($directorioFotos.$entity->getRutaimg3());
-                $fs->remove($directorioFotos.$entity->getRutaimg4());
-                $fs->remove($directorioFotos.$entity->getRutaimg5());
+                if($entity->getRutaimg1() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg1());
+                }
+                if($entity->getRutaimg2() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg2());
+                }
+                if($entity->getRutaimg3() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg3());
+                }
+                if($entity->getRutaimg4() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg4());
+                }
+                if($entity->getRutaimg5() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg5());
+                }
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando laa imágenes en ".$e->getPath();
             }
