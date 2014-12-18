@@ -19,15 +19,172 @@
         </div>
     {% endfor %}
 
-    {{ form(form) }}
-
-    {% set hide_edit, hide_delete = false, false %}
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('anunciante') }}">
-            Volver a la lista
-        </a>
-    </li>
-</ul>
+    {{ form_start(form) }}
+    <div>
+        {{ form_errors(form) }}
+        
+        <div class="form-group">
+            <label class="control-label">Nombre:</label>
+            {{ form_errors(form.nombre) }}
+            {{ form_widget(form.nombre, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">RIF:</label>
+            {{ form_errors(form.rif) }}
+            {{ form_widget(form.rif, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Descripción:</label>
+            {{ form_errors(form.descripcion) }}
+            {{ form_widget(form.descripcion, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(form.avenida) }}
+            {{ form_errors(form.avenida) }}
+            {{ form_widget(form.avenida, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(form.local) }}
+            {{ form_errors(form.local) }}
+            {{ form_widget(form.local, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Sector:</label>
+            {{ form_errors(form.sector) }}
+            {{ form_widget(form.sector, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Ciudad:</label>
+            {{ form_errors(form.ciudad) }}
+            {{ form_widget(form.ciudad, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            <div class="form-group">
+            <label class="control-label">Estado:</label>
+            {{ form_errors(form.estado) }}
+            {{ form_widget(form.estado, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Email:</label>
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            <div class="form-group">
+            <label class="control-label">Telefono1:</label>
+            {{ form_errors(form.telefono1) }}
+            {{ form_widget(form.telefono1, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Telefono2:</label>
+            {{ form_errors(form.telefono2) }}
+            {{ form_widget(form.telefono2, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Web:</label>
+            {{ form_errors(form.web) }}
+            {{ form_widget(form.web, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Facebook:</label>
+            {{ form_errors(form.facebook) }}
+            {{ form_widget(form.facebook, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Twitter:</label>
+            {{ form_errors(form.twitter) }}
+            {{ form_widget(form.twitter, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+       
+        <div class="form-group">
+            <label class="control-label">Hits:</label>
+            {{ form_errors(form.hits) }}
+            {{ form_widget(form.hits, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Horario:</label>
+            {{ form_errors(form.horario) }}
+            {{ form_widget(form.horario, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Mapa:</label>
+            {{ form_errors(form.mapa) }}
+            {{ form_widget(form.mapa, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label>Habilitado:</label>
+            {{ form_errors(form.habilitado) }}
+            {{ form_widget(form.habilitado) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">SubCategoría:</label>
+            {{ form_errors(form.subcategoria) }}
+            {{ form_widget(form.subcategoria, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(form.foto1, 'Foto1:') }}
+            {{ form_errors(form.foto1) }}
+            {{ form_widget(form.foto1) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(form.foto2, 'Foto2:') }}
+            {{ form_errors(form.foto2) }}
+            {{ form_widget(form.foto2) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(form.foto3, 'Foto3:') }}
+            {{ form_errors(form.foto3) }}
+            {{ form_widget(form.foto3) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(form.foto4, 'Foto4:') }}
+            {{ form_errors(form.foto4) }}
+            {{ form_widget(form.foto4) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(form.foto5, 'Foto5:') }}
+            {{ form_errors(form.foto5) }}
+            {{ form_widget(form.foto5) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+        </div>
+        
+        {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
+    </div>
+    
+    {{ form_end(form) }}
+    
+    <br>
+    
+    <div class="row">
+        <ul>
+            <li>
+                <a href="{{ path('anunciante') }}">
+                    Volver a la lista
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 {% endblock %}
