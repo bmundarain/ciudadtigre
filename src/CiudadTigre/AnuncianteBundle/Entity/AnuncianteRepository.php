@@ -46,7 +46,8 @@ class AnuncianteRepository extends EntityRepository
         $consulta = $em->createQuery('
             SELECT a
               FROM CiudadTigreAnuncianteBundle:Anunciante a
-             WHERE a.nombre LIKE :nombre');
+             WHERE a.nombre LIKE :nombre
+          ORDER BY a.nombre ASC');
         
         $consulta->setParameter('nombre', $letra.'%');
         
@@ -76,7 +77,8 @@ class AnuncianteRepository extends EntityRepository
             SELECT a
               FROM CiudadTigreAnuncianteBundle:Anunciante a
              WHERE a.subcategoria = :id
-               AND a.habilitado = 1');
+               AND a.habilitado = 1
+          ORDER BY a.nombre ASC');
         
         $consulta->setParameter('id', $subcategoria_id);
         

@@ -116,8 +116,8 @@ AnuncianteController.php	Modified/-	src/CiudadTigre/BackendBundle/Controller/Anu
 Anunciante.php	Modified/-	src/CiudadTigre/AnuncianteBundle/Entity/Anunciante.php	*
 
 LAST TODAY 18/12
-show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/show.html.twig	
-edit.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/edit.html.twig	
-new.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/new.html.twig	
-AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	
-AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	
+show.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/show.html.twig	*
+edit.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/edit.html.twig	*
+new.html.twig	-/Modified	src/CiudadTigre/BackendBundle/Resources/views/Anunciante/new.html.twig	*
+AnuncianteType.php	-/Modified	src/CiudadTigre/BackendBundle/Form/AnuncianteType.php	*
+AnuncianteController.php	-/Modified	src/CiudadTigre/BackendBundle/Controller/AnuncianteController.php	*
