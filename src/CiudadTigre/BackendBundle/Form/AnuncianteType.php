@@ -13,15 +13,15 @@ class AnuncianteType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {      
         $builder
             //->add('nombre', 'text', array('attr' => array('class' => 'form-control')))
             ->add('nombre', 'text', array('attr' => array('class' => 'form-control')))
             ->add('rif', 'text', array('attr' => array('class' => 'form-control')))
             ->add('descripcion', 'textarea', array('attr' => array('class' => 'form-control')))
             //->add('direccion', 'textarea', array('attr' => array('class' => 'form-control')))
-            ->add('avenida', 'text', array('attr' => array('class' => 'form-control'), 'label' => 'Calle/Avenida', 'required' => true))
-            ->add('local', 'text', array('attr' => array('class' => 'form-control'), 'label' => 'Local/Edificio', 'required' => true))
+            ->add('avenida', 'text', array('attr' => array('class' => 'form-control'), 'label' => 'Calle/Avenida:', 'required' => true))
+            ->add('local', 'text', array('attr' => array('class' => 'form-control'), 'label' => 'Local/Edificio:', 'required' => true))
             ->add('sector', 'text', array('attr' => array('class' => 'form-control'), 'required' => true))
             ->add('ciudad', 'text', array('attr' => array('class' => 'form-control'), 'required' => true))
             ->add('estado', 'text', array('attr' => array('class' => 'form-control'), 'required' => true))
@@ -38,12 +38,13 @@ class AnuncianteType extends AbstractType
             ->add('foto3', 'file', array('required' => false))
             ->add('foto4', 'file', array('required' => false))
             ->add('foto5', 'file', array('required' => false))
+            
 //            ->add('rutaimg1')
 //            ->add('rutaimg2')
 //            ->add('rutaimg3')
 //            ->add('createdAt')
 //            ->add('updatedAt')
-            ->add('mapa', 'textarea', array('attr' => array('class' => 'form-control'), 'required' => false))
+            ->add('mapa', 'text', array('attr' => array('class' => 'form-control'), 'required' => false))
             ->add('habilitado', 'checkbox', array('required' => false, 'label' => 'Habilitado?', 'data' => true ))
 //            ->add('promocionado')
             ->add('subcategoria', 'entity', array(
@@ -54,6 +55,16 @@ class AnuncianteType extends AbstractType
                 'attr'        => array('class' => 'form-control')
                 ))
         ;
+        
+        if(!(null === $builder->getData()->getId())) {
+          $builder
+            ->add('delete1', 'checkbox', array('required' => false, 'mapped' => false, 'label' => 'Borrar foto?'))
+            ->add('delete2', 'checkbox', array('required' => false, 'mapped' => false, 'label' => 'Borrar foto?'))
+            ->add('delete3', 'checkbox', array('required' => false, 'mapped' => false, 'label' => 'Borrar foto?'))
+            ->add('delete4', 'checkbox', array('required' => false, 'mapped' => false, 'label' => 'Borrar foto?'))
+            ->add('delete5', 'checkbox', array('required' => false, 'mapped' => false, 'label' => 'Borrar foto?'))
+          ;
+        }
     }
     
     /**

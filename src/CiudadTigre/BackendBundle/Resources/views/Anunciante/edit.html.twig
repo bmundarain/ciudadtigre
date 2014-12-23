@@ -19,16 +19,203 @@
         </div>
     {% endfor %}
 
-    {{ form(edit_form) }}
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('anunciante') }}">
-            Volver a la lista
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form_start(edit_form) }}
+    <div>
+        {{ form_errors(edit_form) }}
+        
+        <div class="form-group">
+            <label class="control-label">Nombre:</label>
+            {{ form_errors(edit_form.nombre) }}
+            {{ form_widget(edit_form.nombre, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">RIF:</label>
+            {{ form_errors(edit_form.rif) }}
+            {{ form_widget(edit_form.rif, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Descripción:</label>
+            {{ form_errors(edit_form.descripcion) }}
+            {{ form_widget(edit_form.descripcion, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(edit_form.avenida) }}
+            {{ form_errors(edit_form.avenida) }}
+            {{ form_widget(edit_form.avenida, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(edit_form.local) }}
+            {{ form_errors(edit_form.local) }}
+            {{ form_widget(edit_form.local, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Sector:</label>
+            {{ form_errors(edit_form.sector) }}
+            {{ form_widget(edit_form.sector, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Ciudad:</label>
+            {{ form_errors(edit_form.ciudad) }}
+            {{ form_widget(edit_form.ciudad, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            <div class="form-group">
+            <label class="control-label">Estado:</label>
+            {{ form_errors(edit_form.estado) }}
+            {{ form_widget(edit_form.estado, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Email:</label>
+            {{ form_errors(edit_form.email) }}
+            {{ form_widget(edit_form.email, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            <div class="form-group">
+            <label class="control-label">Telefono1:</label>
+            {{ form_errors(edit_form.telefono1) }}
+            {{ form_widget(edit_form.telefono1, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Telefono2:</label>
+            {{ form_errors(edit_form.telefono2) }}
+            {{ form_widget(edit_form.telefono2, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Web:</label>
+            {{ form_errors(edit_form.web) }}
+            {{ form_widget(edit_form.web, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label">Facebook:</label>
+            {{ form_errors(edit_form.facebook) }}
+            {{ form_widget(edit_form.facebook, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Twitter:</label>
+            {{ form_errors(edit_form.twitter) }}
+            {{ form_widget(edit_form.twitter, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+       
+        <div class="form-group">
+            <label class="control-label">Hits:</label>
+            {{ form_errors(edit_form.hits) }}
+            {{ form_widget(edit_form.hits, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Horario:</label>
+            {{ form_errors(edit_form.horario) }}
+            {{ form_widget(edit_form.horario, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">Mapa:</label>
+            {{ form_errors(edit_form.mapa) }}
+            {{ form_widget(edit_form.mapa, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            <label>Habilitado:</label>
+            {{ form_errors(edit_form.habilitado) }}
+            {{ form_widget(edit_form.habilitado) }}
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label">SubCategoría:</label>
+            {{ form_errors(edit_form.subcategoria) }}
+            {{ form_widget(edit_form.subcategoria, { 'attr': { 'class': 'form-control' } }) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(edit_form.foto1, 'Foto1:') }}
+            {{ form_errors(edit_form.foto1) }}
+            {{ form_widget(edit_form.foto1) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+            {% set img1 = entity.rutaimg1 %}
+            {% if img1 is not empty %}
+                <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg1) }}" width="120" height="80">
+            {% endif %}
+            {{ form_label(edit_form.delete1) }}
+            {{ form_widget(edit_form.delete1) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(edit_form.foto2, 'Foto2:') }}
+            {{ form_errors(edit_form.foto2) }}
+            {{ form_widget(edit_form.foto2) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+            {% set img2 = entity.rutaimg2 %}
+            {% if img2 is not empty %}
+                <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg2) }}" width="120" height="80">    
+            {% endif %}
+            {{ form_label(edit_form.delete2) }}
+            {{ form_widget(edit_form.delete2) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(edit_form.foto3, 'Foto3:') }}
+            {{ form_errors(edit_form.foto3) }}
+            {{ form_widget(edit_form.foto3) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+            {% set img3 = entity.rutaimg3 %}
+            {% if img3 is not empty %}
+                <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg3) }}" width="120" height="80">
+            {% endif %}
+            {{ form_label(edit_form.delete3) }}
+            {{ form_widget(edit_form.delete3) }}
+        </div>
+        
+        <div class="form-group">
+            {{ form_label(edit_form.foto4, 'Foto4:') }}
+            {{ form_errors(edit_form.foto4) }}
+            {{ form_widget(edit_form.foto4) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+            {% set img4 = entity.rutaimg4 %}
+            {% if img4 is not empty %}
+                <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg4) }}" width="120" height="80">
+            {% endif %}
+            {{ form_label(edit_form.delete4) }}
+            {{ form_widget(edit_form.delete4) }}
+        </div>
+            
+        <div class="form-group">
+            {{ form_label(edit_form.foto5, 'Foto5:') }}
+            {{ form_errors(edit_form.foto5) }}
+            {{ form_widget(edit_form.foto5) }}
+            <p class="help-block"><strong>Tamaño máximo:</strong> 500 KB. <strong>Formato preferido:</strong> JPEG.
+            {% set img5 = entity.rutaimg5 %}
+            {% if img5 is not empty %}
+                <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg5) }}" width="120" height="80">
+            {% endif %}
+            {{ form_label(edit_form.delete5) }}
+            {{ form_widget(edit_form.delete5) }}
+        </div>
+        
+        {{ form_widget(edit_form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}
+    </div>
     
+    {{ form_end(edit_form) }}
+
+    <br>
+    
+    <div class="row">
+        <ul>
+            <li>
+                <a href="{{ path('anunciante') }}">
+                    Volver a la lista
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>    
 </div>
 {% endblock %}

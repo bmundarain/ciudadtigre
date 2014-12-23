@@ -207,102 +207,174 @@ class AnuncianteController extends Controller
 
         if ($editForm->isValid()) {
             
-            if (null == $entity->getFoto1()) {
-                // La foto original no se modifica, recuperar su ruta
-                $entity->setRutaimg1($rutaFotoOriginal1);
-            } else {
-                // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
-                
-                $entity->subirFoto1($directorioFotos);
-                // Borrar la foto anterior
+            $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
+            
+            if ($editForm->get('delete1')->getData())
+            {
                 if (!empty($rutaFotoOriginal1)) {
                     $fs = new Filesystem();
                                         
                     try {
+                        $entity->setRutaimg1(null);
                         $fs->remove($directorioFotos.$rutaFotoOriginal1);
                     } catch (IOExceptionInterface $e) {
-                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        echo "Ocurrió un error borrando la imagen1 en ".$e->getPath();
+                    }
+                }
+            }
+            else
+            {
+                if (null == $entity->getFoto1()) {
+                // La foto original no se modifica, recuperar su ruta
+                $entity->setRutaimg1($rutaFotoOriginal1);
+                } else {
+                    // La foto de la oferta se ha modificado
+                    $entity->subirFoto1($directorioFotos);
+                    // Borrar la foto anterior
+                    if (!empty($rutaFotoOriginal1)) {
+                        $fs = new Filesystem();
+
+                        try {
+                            $fs->remove($directorioFotos.$rutaFotoOriginal1);
+                        } catch (IOExceptionInterface $e) {
+                            echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        }
                     }
                 }
             }
             
-            if (null == $entity->getFoto2()) {
-                // La foto original no se modifica, recuperar su ruta
-                $entity->setRutaimg2($rutaFotoOriginal2);
-            } else {
-                // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
-                
-                $entity->subirFoto2($directorioFotos);
-                // Borrar la foto anterior
+            if ($editForm->get('delete2')->getData())
+            {
                 if (!empty($rutaFotoOriginal2)) {
                     $fs = new Filesystem();
-                    
+                                        
                     try {
+                        $entity->setRutaimg2(null);
                         $fs->remove($directorioFotos.$rutaFotoOriginal2);
                     } catch (IOExceptionInterface $e) {
-                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        echo "Ocurrió un error borrando la imagen2 en ".$e->getPath();
+                    }
+                }
+            }
+            else
+            {
+                if (null == $entity->getFoto2()) {
+                    // La foto original no se modifica, recuperar su ruta
+                    $entity->setRutaimg2($rutaFotoOriginal2);
+                } else {
+                    // La foto de la oferta se ha modificado                
+                    $entity->subirFoto2($directorioFotos);
+                    // Borrar la foto anterior
+                    if (!empty($rutaFotoOriginal2)) {
+                        $fs = new Filesystem();
+
+                        try {
+                            $fs->remove($directorioFotos.$rutaFotoOriginal2);
+                        } catch (IOExceptionInterface $e) {
+                            echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        }
                     }
                 }
             }
             
-            if (null == $entity->getFoto3()) {
-                // La foto original no se modifica, recuperar su ruta
-                $entity->setRutaimg3($rutaFotoOriginal3);
-            } else {
-                // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
-                
-                $entity->subirFoto3($directorioFotos);
-                // Borrar la foto anterior
+            if ($editForm->get('delete3')->getData())
+            {
                 if (!empty($rutaFotoOriginal3)) {
                     $fs = new Filesystem();
-                    
+                                        
                     try {
+                        $entity->setRutaimg3(null);
                         $fs->remove($directorioFotos.$rutaFotoOriginal3);
                     } catch (IOExceptionInterface $e) {
-                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        echo "Ocurrió un error borrando la imagen3 en ".$e->getPath();
+                    }
+                }
+            }
+            else
+            {
+                if (null == $entity->getFoto3()) {
+                    // La foto original no se modifica, recuperar su ruta
+                    $entity->setRutaimg3($rutaFotoOriginal3);
+                } else {
+                    // La foto de la oferta se ha modificado
+                    $entity->subirFoto3($directorioFotos);
+                    // Borrar la foto anterior
+                    if (!empty($rutaFotoOriginal3)) {
+                        $fs = new Filesystem();
+
+                        try {
+                            $fs->remove($directorioFotos.$rutaFotoOriginal3);
+                        } catch (IOExceptionInterface $e) {
+                            echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        }
                     }
                 }
             }
             
-            if (null == $entity->getFoto4()) {
-                // La foto original no se modifica, recuperar su ruta
-                $entity->setRutaimg4($rutaFotoOriginal4);
-            } else {
-                // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
-                
-                $entity->subirFoto4($directorioFotos);
-                // Borrar la foto anterior
+            if ($editForm->get('delete4')->getData())
+            {
                 if (!empty($rutaFotoOriginal4)) {
                     $fs = new Filesystem();
-                    
+                                        
                     try {
+                        $entity->setRutaimg4(null);
                         $fs->remove($directorioFotos.$rutaFotoOriginal4);
                     } catch (IOExceptionInterface $e) {
-                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        echo "Ocurrió un error borrando la imagen4 en ".$e->getPath();
+                    }
+                }
+            }
+            else
+            {
+                if (null == $entity->getFoto4()) {
+                    // La foto original no se modifica, recuperar su ruta
+                    $entity->setRutaimg4($rutaFotoOriginal4);
+                } else {
+                    // La foto de la oferta se ha modificado
+                    $entity->subirFoto4($directorioFotos);
+                    // Borrar la foto anterior
+                    if (!empty($rutaFotoOriginal4)) {
+                        $fs = new Filesystem();
+
+                        try {
+                            $fs->remove($directorioFotos.$rutaFotoOriginal4);
+                        } catch (IOExceptionInterface $e) {
+                            echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        }
                     }
                 }
             }
             
-            if (null == $entity->getFoto5()) {
-                // La foto original no se modifica, recuperar su ruta
-                $entity->setRutaimg5($rutaFotoOriginal5);
-            } else {
-                // La foto de la oferta se ha modificado
-                $directorioFotos = $this->container->getParameter('directorio.imagenes.anunciante');
-                
-                $entity->subirFoto5($directorioFotos);
-                // Borrar la foto anterior
+            if ($editForm->get('delete5')->getData())
+            {
                 if (!empty($rutaFotoOriginal5)) {
                     $fs = new Filesystem();
-                    
+                                        
                     try {
+                        $entity->setRutaimg5(null);
                         $fs->remove($directorioFotos.$rutaFotoOriginal5);
                     } catch (IOExceptionInterface $e) {
-                        echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        echo "Ocurrió un error borrando la imagen5 en ".$e->getPath();
+                    }
+                }
+            }
+            else
+            {
+                if (null == $entity->getFoto5()) {
+                    // La foto original no se modifica, recuperar su ruta
+                    $entity->setRutaimg5($rutaFotoOriginal5);
+                } else {
+                    // La foto de la oferta se ha modificado
+                    $entity->subirFoto5($directorioFotos);
+                    // Borrar la foto anterior
+                    if (!empty($rutaFotoOriginal5)) {
+                        $fs = new Filesystem();
+
+                        try {
+                            $fs->remove($directorioFotos.$rutaFotoOriginal5);
+                        } catch (IOExceptionInterface $e) {
+                            echo "Ocurrió un error actualizando la imagen en ".$e->getPath();
+                        }
                     }
                 }
             }
@@ -349,11 +421,26 @@ class AnuncianteController extends Controller
             // Borrar la foto
             $fs = new Filesystem();
             try {
-                $fs->remove($directorioFotos.$entity->getRutaimg1());
-                $fs->remove($directorioFotos.$entity->getRutaimg2());
-                $fs->remove($directorioFotos.$entity->getRutaimg3());
-                $fs->remove($directorioFotos.$entity->getRutaimg4());
-                $fs->remove($directorioFotos.$entity->getRutaimg5());
+                if($entity->getRutaimg1() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg1());
+                }
+                if($entity->getRutaimg2() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg2());
+                }
+                if($entity->getRutaimg3() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg3());
+                }
+                if($entity->getRutaimg4() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg4());
+                }
+                if($entity->getRutaimg5() != '')
+                {
+                    $fs->remove($directorioFotos.$entity->getRutaimg5());
+                }
             } catch (IOExceptionInterface $e) {
                 echo "Ocurrió un error borrando laa imágenes en ".$e->getPath();
             }

@@ -84,23 +84,47 @@
             </tr>
             <tr>
                 <th>Rutaimg1</th>
-                <td><img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg1) }}" width="400" height="300"></td>
+                <td>
+                    {% set img1 = entity.rutaimg1 %}
+                    {% if img1 is not empty %}
+                        <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg1) }}" width="400" height="300">
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Rutaimg2</th>
-                <td><img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg2) }}" width="400" height="300"></td>
+                <td>
+                    {% set img2 = entity.rutaimg2 %}
+                    {% if img2 is not empty %}
+                        <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg2) }}" width="400" height="300">
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Rutaimg3</th>
-                <td><img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg3) }}" width="400" height="300"></td>
+                <td>
+                    {% set img3 = entity.rutaimg3 %}
+                    {% if img3 is not empty %}
+                        <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg3) }}" width="400" height="300">
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Rutaimg4</th>
-                <td><img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg4) }}" width="400" height="300"></td>
+                <td>{% set img4 = entity.rutaimg4 %}
+                    {% if img4 is not empty %}
+                        <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg4) }}" width="400" height="300">
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Rutaimg5</th>
-                <td><img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg5) }}" width="400" height="300"></td>
+                <td>
+                    {% set img5 = entity.rutaimg5 %}
+                    {% if img5 is not empty %}
+                        <img src="{{ asset('/uploads/images/img-tiendas/' ~ entity.rutaimg5) }}" width="400" height="300">
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Createdat</th>
