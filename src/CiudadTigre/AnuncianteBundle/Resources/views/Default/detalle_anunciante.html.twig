@@ -13,6 +13,7 @@
                         <li>Calle o Avenida: {{ anunciante.avenida }}</li>
                         <li>Edif/Local: {{ anunciante.local }}</li>
                         <li>Sector: {{ anunciante.sector }}</li>
+                        <li>Ciudad: {{ anunciante.ciudad }}</li>
                         <li>Estado: {{ anunciante.estado }}</li>
                         
                         {% set email = anunciante.email %}
@@ -46,6 +47,7 @@
                         {% endif %}
                             
                         <li>Descripción: {{ anunciante.descripcion }}</li>
+                        <li>Hits: {{ anunciante.hits }}</li>
                     </ul>
                 </div>
             </div>
